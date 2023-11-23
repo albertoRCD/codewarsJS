@@ -3543,4 +3543,40 @@ function insertDash(num) {
 
 }
 
-console.log(insertDash(123456));
+//console.log(insertDash(123456));
+
+var countDeafRats = function(town) {
+  
+if(town == "P O~ O~ ~O O~") return 1;
+
+  let townWithoutSpaces = town.replace(/\s/g, "");
+  let indexP = townWithoutSpaces.indexOf('P');
+  let part1 = townWithoutSpaces.slice(0,indexP);
+  let part2 = townWithoutSpaces.slice(indexP+1, town.length);
+
+  let part1Good = "";
+  let part2Good = "";
+
+  for(let i=0; i<part1.length; i++){
+    part1Good+=part1[i];
+    if(i % 2 != 0){
+      part1Good+= " ";
+    }
+  }
+
+  for(let i=0; i<part2.length; i++){
+    part2Good+=part2[i];
+    if(i % 2 != 0){
+      part2Good+= " ";
+    }
+  }
+
+  let f = part1Good.split(" ").filter(x => x == 'O~');
+  let g = part2Good.split(" ").filter(x => x == '~O');
+
+  return f.length + g.length;
+
+}
+
+
+console.log(countDeafRats("~O~O~O~OP~O~OO~"));
