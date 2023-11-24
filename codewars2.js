@@ -3575,8 +3575,81 @@ if(town == "P O~ O~ ~O O~") return 1;
   let g = part2Good.split(" ").filter(x => x == '~O');
 
   return f.length + g.length;
+}
+//console.log(countDeafRats("~O~O~O~OP~O~OO~"));
 
+function step(g, m, n) {
+  
+  let primes = [];
+
+  const esPrimo = (n) => {
+    for(let i=2; i<n; i++){
+        if(n % i == 0){
+          return false;
+        }
+    }
+    return true;
+  }
+
+  for(let i=m; i<=n; i++){
+      esPrimo(i) && primes.push(i);
+    }  
+  
+    for(let i=0; i<primes.length; i++){
+      for(let j=0; j<primes.length; j++){
+        if(primes[j] - primes[i] == g){
+          return [primes[i], primes[j]]; 
+        }
+      }
+    }
 }
 
+//console.log(step(10,300,400));
 
-console.log(countDeafRats("~O~O~O~OP~O~OO~"));
+function yearDays(year){
+  if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+        return `${year} has 366 days`;
+    } else {
+        return `${year} has 365 days`;
+    }
+}
+//console.log(yearDays(2023));
+
+function bigToSmall(arr){
+  
+  let array = [];
+  for(let i=0; i<arr.length; i++){
+    for(let j=0; j<arr[i].length; j++){
+      array.push(arr[i][j]);
+    }
+  }
+  return array.sort((a,b) => b-a).join(">");
+}
+//console.log(bigToSmall([[1,2],[3,4],[5,6]]));
+
+function average(scores) {
+  return Math.round(scores.reduce((x , acc) => x + acc)/scores.length);
+}
+//console.log(average([49,3,5,300,7]));
+
+function productArray(numbers){
+  //([3,27,4,2]),
+  //   3,27,4,2
+  // [216,24,162,324]);
+  
+  let prods = [];
+
+  for(let i=0; i<numbers.length; i++){
+   for(let j=0; j<numbers.length; j++){
+      if( i == j) continue;
+      else{
+        let element = numbers[i];
+        element *= numbers[j];
+        prods.push(element)
+      }
+   }
+  }
+
+return prods;
+}
+console.log(productArray([3,27,4,2]));
