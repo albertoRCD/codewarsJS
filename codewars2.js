@@ -3712,3 +3712,72 @@ function padIt(str,n){
 return result.join("");
 }
 //console.log(padIt("a",4));
+
+function to_nato(words) {
+  const alfabetoOTAN = {
+    A: 'Alfa',
+    B: 'Bravo',
+    C: 'Charlie',
+    D: 'Delta',
+    E: 'Echo',
+    F: 'Foxtrot',
+    G: 'Golf',
+    H: 'Hotel',
+    I: 'India',
+    J: 'Juliett',
+    K: 'Kilo',
+    L: 'Lima',
+    M: 'Mike',
+    N: 'November',
+    O: 'Oscar',
+    P: 'Papa',
+    Q: 'Quebec',
+    R: 'Romeo',
+    S: 'Sierra',
+    T: 'Tango',
+    U: 'Uniform',
+    V: 'Victor',
+    W: 'Whiskey',
+    X: 'Xray',
+    Y: 'Yankee',
+    Z: 'Zulu'
+  };
+
+  let initials = [];
+  let array = words.split(" ");
+
+  for(let i=0; i<array.length; i++){
+    for(let j=0; j<array[i].length; j++){
+      initials.push(array[i].charAt(j).toUpperCase())
+  }
+}
+  return initials.map(c => alfabetoOTAN[c]).join(" ");
+}
+
+//console.log(to_nato("hola que tal"));
+
+function minimumSteps(numbers, value){
+  
+  let ordened = numbers.sort((a,b) => a-b);
+  let total = 0;
+
+  for(let i=0; i<ordened.length; i++){
+      total += ordened[i];
+      if(total >= value){
+        return i;
+      }
+  }
+}
+//console.log(minimumSteps([19,98,69,28,75,45,17,98,67], 464));
+
+//https://www.codewars.com/kata/55caf1fd8063ddfa8e000018/train/javascript
+function arithmeticSequenceElements(a, d, n) {
+
+  let str = "";
+
+  for(let i=1; i<=n; i+=d){
+      str += i + " ";
+  }
+	return str;
+}
+console.log(arithmeticSequenceElements(1,0,5));
