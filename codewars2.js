@@ -3633,23 +3633,82 @@ function average(scores) {
 //console.log(average([49,3,5,300,7]));
 
 function productArray(numbers){
-  //([3,27,4,2]),
-  //   3,27,4,2
-  // [216,24,162,324]);
-  
+
   let prods = [];
 
   for(let i=0; i<numbers.length; i++){
+    let element = 1;
    for(let j=0; j<numbers.length; j++){
-      if( i == j) continue;
-      else{
-        let element = numbers[i];
+        if( i == j) continue;
         element *= numbers[j];
-        prods.push(element)
       }
+      prods.push(element)
    }
-  }
-
 return prods;
 }
-console.log(productArray([3,27,4,2]));
+//console.log(productArray([3,27,4,2]));
+
+
+function discoverOriginalPrice(discountedPrice, salePercentage){
+  return +(discountedPrice / (1 - salePercentage / 100)).toFixed(2);
+}
+
+function newAvg(arr, newavg) {
+  
+  let currentSum = arr.reduce((x, acc) => x + acc); 
+  let currentAvg = currentSum/arr.length;
+
+  if (currentAvg >= newavg) return "Expected New Average is too low";
+
+  const remainingDonations = Math.ceil((newavg  * (arr.length + 1)) - currentSum);
+  return remainingDonations;
+}
+//console.log(newAvg([14, 30, 5, 7, 9, 11, 15], 92))
+
+function ensureQuestion(s) {
+  return s.charAt(s.length-1) == '?' ? s : s+"?";
+}
+//console.log(ensureQuestion("No?"));
+
+function hydrate(s) {
+ 
+  let array = ['0','1','2','3','4','5','6','7','8','9'];
+  let numbers = [];
+
+  for(let i = 0; i <s.length;  i++){
+    if(array.includes(s[i])){
+      numbers.push(parseInt(s[i]));
+    }
+  }
+
+let r = numbers.reduce((c, acc) => c + acc);
+
+return r > 1 ? `${r} glasses of water` : `${r} glass of water`
+
+}
+//console.log(hydrate("2 glasses of wine and 1 shot"));
+
+function padIt(str,n){
+  /*    Test.assertSimilar(padIt("a",1),"*a");
+    Test.assertSimilar(padIt("a",2),"*a*");
+    Test.assertSimilar(padIt("a",3),"**a*");
+    Test.assertSimilar(padIt("a",4),"**a**");
+    Test.assertSimilar(padIt("a",5),"***a**"); */
+
+  let star = "*".repeat(n);
+  let array = star.split("");
+  let result = [];
+  if(n == 1) return "*"+str;
+  let contador = 0;
+
+  while(contador < array.length){
+      if(contador == Math.ceil(n/2)){
+      result.push(str);
+    }
+    result.push(array[contador]);
+    contador++;
+  }
+
+return result.join("");
+}
+//console.log(padIt("a",4));
