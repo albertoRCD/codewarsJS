@@ -3772,12 +3772,54 @@ function minimumSteps(numbers, value){
 
 //https://www.codewars.com/kata/55caf1fd8063ddfa8e000018/train/javascript
 function arithmeticSequenceElements(a, d, n) {
-
-  let str = "";
-
-  for(let i=1; i<=n; i+=d){
-      str += i + " ";
-  }
-	return str;
+  let r = [];
+ for(let i=a, contador=1; contador<=n; i+=d, contador++){
+    r.push(i);
+ }
+	return r.join(", ");
 }
-console.log(arithmeticSequenceElements(1,0,5));
+//console.log(arithmeticSequenceElements(100, -10, 10));
+
+function colorOf(r,g,b){
+
+  let rs = r.toString(16);
+  let gs = g.toString(16);
+  let bs = b.toString(16);
+
+  if(rs.length < 2) rs="0"+rs;
+  if(gs.length < 2) gs="0"+gs;
+  if(bs.length < 2) bs="0"+bs;
+
+  return `#${rs}${gs}${bs}`;
+
+}
+//console.log(colorOf(255,0,0));
+
+function getMinMax(arr){
+  
+    return [arr.sort((a,b) => a-b)[0], arr.sort((a,b) => b-a)[0]]
+};
+
+//console.log(getMinMax([1,2]));
+
+function typeValidation(variable, type) {
+  return typeof variable == type;
+}
+//console.log(typeValidation(42, "number"));
+
+function checkThreeAndTwo(array) {
+    let firstElement =array[0];
+    let secondElement;
+    for(let i=0; i<array.length; i++){
+      if(array[i] != firstElement){
+        secondElement = array[i];
+        break;
+      }
+    }
+  let numFirstElement = array.filter(x => x == firstElement).length;
+  let numSecondElement = array.filter(x => x == secondElement).length;
+  
+  return (numFirstElement == 2 && numSecondElement == 3) || (numFirstElement == 3 && numSecondElement== 2);
+
+}
+console.log(checkThreeAndTwo(["a", "a", "a", "b", "b"]));
