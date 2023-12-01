@@ -1,3 +1,6 @@
+const abc = "abcdefghijklmnopqrstuvwxyz";
+
+
 function lovefunc(flower1, flower2){
 
     return flower1 % 2 == 0 && flower2 % 2 == 0 ? false : flower1 % 2 != 0 && flower2 % 2 != 0 ? false : true;
@@ -3822,4 +3825,50 @@ function checkThreeAndTwo(array) {
   return (numFirstElement == 2 && numSecondElement == 3) || (numFirstElement == 3 && numSecondElement== 2);
 
 }
-console.log(checkThreeAndTwo(["a", "a", "a", "b", "b"]));
+//console.log(checkThreeAndTwo(["a", "a", "a", "b", "b"]));
+
+function wordValue23(a) {
+  const abc = {
+    'a' : 1,
+    'b' : 2,
+    'c' : 3,
+    'd' : 4,
+    'e' : 5,
+    'f' : 6,
+    'g' : 7,
+    'h' : 8,
+    'i' : 9,
+    'j' : 10,
+    'k' : 11,
+    'l' : 12,
+    'm' : 13,
+    'n' : 14,
+    'o' : 15,
+    'p' : 16,
+    'q' : 17,
+    'r' : 18,
+    's' : 19,
+    't' : 20,
+    'u' : 21,
+    'v' : 22,
+    'w' : 23,
+    'x' : 24,
+    'y' : 25,
+    'z' : 26,
+    " " : 0
+  };
+
+let suma;
+let array = [];
+
+  for(let i=0; i<a.length; i++){
+    suma = 0;
+   for(let j=0; j<a[i].length; j++){
+      suma+=abc[a[i][j]];
+   }
+   array.push(suma*(i+1));
+  }
+  return array;
+}
+
+console.log(wordValue23(["abc abc","abc abc","abc","abc"]));
