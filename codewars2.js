@@ -3871,4 +3871,35 @@ let array = [];
   return array;
 }
 
-console.log(wordValue23(["abc abc","abc abc","abc","abc"]));
+//console.log(wordValue23(["abc abc","abc abc","abc","abc"]));
+
+const stantonMeasure = (array) => {
+
+  let ones = array.filter(x => x == 1).length;
+  
+  return array.filter(x => x == ones).length;
+}
+//console.log(stantonMeasure([1,2,2,1,2,5,6,2]));
+
+const filterLucky = (xs) =>{
+  return xs.filter(x => x.toString().includes('7'));
+}
+//console.log(filterLucky([1,2,3,4,5,6,7,70,17]));
+
+function menFromBoys(arr){
+  let odds = [];
+  let even = [];
+  for(let num of arr){
+    if(num % 2 == 0 && !even.includes(num)){
+      even.push(num);
+    } else if (num % 2 != 0 && !odds.includes(num)) {
+      odds.push(num);
+    }
+  }
+
+  even.sort((a,b) => a-b);
+  odds.sort((a,b) => b-a);
+
+  return [...even, ...odds];
+}
+//console.log(menFromBoys([7,3,14,17]))
