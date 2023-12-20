@@ -3903,3 +3903,81 @@ function menFromBoys(arr){
   return [...even, ...odds];
 }
 //console.log(menFromBoys([7,3,14,17]))
+
+
+function eachCons(arr, n) {
+
+  const result = [];
+  for (let i = 0; i <= arr.length - n; i++) {
+    result.push(arr.slice(i, i + n));
+  }
+  return result;
+}
+//-----------------
+
+
+function upArray(arr){
+
+for(let i=0; i<arr.length; i++){
+  if(arr[i] < 0 || arr[i] > 10){
+    return null;
+  }
+}
+
+let n = BigInt(arr.join(""))+1n;
+
+let array = n.toString().split("");
+
+if(arr[0] == 0 && arr[arr.length-1] != 9)
+  return [0, ...array.map(x => parseInt(x))];
+ else 
+  return array.map(x => parseInt(x));
+
+}
+//console.log(upArray([1,10]))
+
+function createDict(keys, values){
+  
+  let dict = {};
+
+  for(let i=0; i<keys.length; i++){
+      if(values[i] != undefined)
+    dict[keys[i]] = values[i]; 
+    else 
+      dict[keys[i]] = null; 
+  }
+
+  return dict;
+
+}
+
+//console.log(createDict(['a', 'b', 'c','d'], [1, 2, 3]));
+
+function elevatorDistance(array) {
+  let result = 0;
+
+  for(let i=0; i<array.length; i++){
+    if(array[i+1] != undefined)
+      result += Math.abs(array[i] - array[i+1])
+  }
+
+  return result;
+
+}
+//console.log(elevatorDistance([7,1,7,1]));
+
+function longestWord(stringOfWords){
+  //Give me back the longest word!
+
+  let a = stringOfWords.split(" ").sort((a,b) => a.length > b.length ? -1 : a.length < b.length ? 1 : 0)[0].length;
+  let words = [];
+  let array = stringOfWords.split(" ");
+
+  for(let i=0; i<array.length; i++){
+    if(array[i].length == a){
+      words.push(array[i]);
+    }
+  }
+  return words[words.length-1];
+}
+//console.log(longestWord("hola que tal estas amigo"));
