@@ -2995,7 +2995,7 @@ function encode(str,  n)
   let numbers = [];
   let array = [];
 
-  let nString = n.toString().repeat(5);
+  let nString = n.toString().repeat(20);
   for(let i=0; i<nString.length; i++){
     numbers.push(parseInt(nString[i]));
   }
@@ -3981,3 +3981,107 @@ function longestWord(stringOfWords){
   return words[words.length-1];
 }
 //console.log(longestWord("hola que tal estas amigo"));
+
+function greet(name) {
+  
+  if (name == null || name == "") return null; 
+  
+  else return `hello ${name}!`; 
+}
+//console.log(greet(null));
+
+function sumDigPow(a, b) {
+ 
+    const isValid = (n) => {
+
+      if(n >= 1 && n <= 9) return true;
+
+      let nString = n.toString();
+      let suma = 0;
+      for(let i=0; i<nString.length; i++){
+        suma+=parseInt(Math.pow(nString[i], i+1));
+      }
+      if(suma == n) return true;
+      else return false;
+    }
+
+    let numbers =[];
+
+    for(let i=a; i<=b; i++){
+      isValid(i) && numbers.push(i);
+    }
+    return numbers;
+}
+//console.log(sumDigPow(10,100));
+
+function twoDecimalPlaces(number) {
+  let s = number.toString();
+  let i = s.indexOf(".");
+
+  return parseFloat(s.slice(0,i+3));
+}
+//console.log(twoDecimalPlaces(32.8493));
+
+function htmlspecialchars(formData) {
+ 
+    const dict = {
+      "<" : "&lt;",
+      ">" : "&gt;",
+      '"' : "&quot;",
+      "&" : "&amp;",
+    };
+
+    let result = "";
+
+    for(let i=0; i<formData.length; i++){
+      if(dict.hasOwnProperty(formData[i])){
+        result += dict[formData[i]];
+      } else result += formData[i];
+    }
+
+return result;
+}
+
+//console.log(htmlspecialchars("<script>alert('Website Hacked!');</script>"));
+
+function validSpacing(s) {
+  if(s.charAt(0) == " " || s.charAt(s.length-1) == " ") return false;
+
+  for(let i=1; i<s.length-1; i++){
+      if(s.charAt(i) == " " && s.charAt(i+1) == " ") return false; 
+  }
+  return true;
+}
+//console.log(validSpacing("Hello  wordl"));
+
+function sum(...args) {
+  return args.reduce((acc, x) => acc + x);
+}
+//console.log(sum(5, 7, 9));
+
+// TODO: implement the four functions specified.
+/* | HEAD | <----------- TAIL ------------> |
+[  1,  2,  3,  4,  5,  6,  7,  8,  9,  10]
+| <----------- INIT ------------> | LAST |
+
+head [x] = x
+tail [x] = []
+init [x] = []
+last [x] = x */
+
+const head = (x) => {
+  return x[0];
+}
+
+const tail = (x) => {
+  return x.slice(1,);
+}
+
+const init = (x) => {
+  return x.slice(0, -1);
+}
+
+const last = (x) => {
+  return x[x.length-1];
+}
+
