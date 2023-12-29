@@ -4085,3 +4085,43 @@ const last = (x) => {
   return x[x.length-1];
 }
 
+
+function fiveLine(s){
+  
+  s = s.trim();
+  let result = "";
+  for(let i=1; i<=5; i++){
+    if(i != 5)
+      result += s.repeat(i)+"\n";
+    else result += s.repeat(i);
+    }
+  
+  return result;
+}
+//console.log(fiveLine("    a"));
+
+var paintLetterboxes = function(start, end) {
+
+  let numbersDic = {
+    '0':0,'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,
+  }
+
+  let digits = [];
+
+  for(let i=start; i<=end; i++){
+      digits.push(i.toString());
+  }
+
+  digits = digits.join("").split("").map(x =>  x);
+
+  for(let i=0; i<digits.length; i++){
+    if(numbersDic.hasOwnProperty(digits[i])){
+      numbersDic[digits[i]]++;
+    }
+  }
+
+  return Object.values(numbersDic);
+}
+//console.log(paintLetterboxes(125, 132));
+
+
