@@ -1420,24 +1420,6 @@ function solve(arr){
   }
  // console.log(shortenToDate("Friday May 2, 9am"));
 
- const orderedCount = function (text) {
-  
-
-  let result = {};
-  let array = [];
-  for(let i=0; i<text.length; i++){
-      if(result[text[i]])
-          result[text[i]] += 1;
-      else(result[text[i]] = 1);
-  }
-
-  for(var p in result){
-    array.push([p, result[p]]);
-  }
-
-  return array.sort((a,b) => b[1] - a[1]);
-}
-//console.log(orderedCount("abracadabra"));
 
 function uniTotal (string) {
   
@@ -4124,4 +4106,143 @@ var paintLetterboxes = function(start, end) {
 }
 //console.log(paintLetterboxes(125, 132));
 
+function product (string) {
 
+  let qMarks = string.split("").filter(x => x == "?").length; 
+  let eMarks = string.split("").filter(x => x == "!").length;
+
+  return qMarks * eMarks;
+}
+
+//console.log(product("hola=?que tak? awd"));
+
+function deepCount(a){
+  
+  return a.reduce((s,e)=>s+(Array.isArray(e)?deepCount(e):0),a.length);
+}
+
+//console.log(deepCount(["x", "y", ["z"]]));
+
+function evenLast(numbers) {
+  let lastInt = numbers[numbers.length-1];
+  let sum = 0;
+  for(let i = 0; i<numbers.length; i++){
+    if(i % 2 == 0)
+      sum += numbers[i] * lastInt;
+  }
+
+  return sum;
+}
+//console.log(evenLast([2,3,4,5]));
+
+const orderedCount = function (text) {
+  
+  let result = {};
+  let array = [];
+  for(let i=0; i<text.length; i++){
+      if(result[text[i]])
+          result[text[i]] += 1;
+      else(result[text[i]] = 1);
+  }
+
+  for(var p in result){
+    array.push([p, result[p]]);
+  }
+
+  return JSON.stringify(array);
+}
+//console.log(orderedCount("345464634643622"));
+
+function findAdmin(list, lang) {
+
+  return list.filter(z => z.language == lang && z.githubAdmin == 'yes');
+
+}
+
+var list1 = [
+  { firstName: 'Harry', lastName: 'K.', country: 'Brazil', continent: 'Americas', age: 22, language: 'JavaScript', githubAdmin: 'yes' },
+  { firstName: 'Kseniya', lastName: 'T.', country: 'Belarus', continent: 'Europe', age: 49, language: 'Ruby', githubAdmin: 'no' },
+  { firstName: 'Jing', lastName: 'X.', country: 'China', continent: 'Asia', age: 34, language: 'JavaScript', githubAdmin: 'yes' },
+  { firstName: 'Piotr', lastName: 'B.', country: 'Poland', continent: 'Europe', age: 128, language: 'JavaScript', githubAdmin: 'no' }
+];
+//console.log(findAdmin(list1, 'JavaScript'))
+
+function unusualFive() {
+  return "aaaaa".length;
+}
+//console.log(unusualFive());
+
+function bandNameGenerator(str) {
+  
+  if(str[0] != str[str.length-1]){
+    return "The " + str[0].toUpperCase() + str.slice(1);
+  } else {
+    return str[0].toUpperCase()+str.slice(1)+str.slice(1);
+  }
+}
+//console.log(bandNameGenerator("sandles"))
+
+function minimumNumber(numbers){
+
+  const esPrimo = (x) => {
+    for(let i=2; i<x; i++){
+      if(x % i == 0) return false;
+    }
+    return true;
+  }
+  
+  let total = numbers.reduce((s, acc) => s + acc);
+  let r = total;
+  
+  if(esPrimo(total)) return 0;
+
+  do {
+    r++;
+
+  }while(!esPrimo(r));
+
+  
+  return r - total;
+
+}
+//console.log(minimumNumber([5 , 2]))
+
+function getStrings(city){
+
+  let obj = {};
+  city = city.toLowerCase();
+
+  for(let i=0; i<city.length; i++){
+    if(city[i] == " ") continue;
+    if(obj[city[i]]){
+      obj[city[i]] += "*";
+    } else {
+      obj[city[i]] = "*";
+    }
+  }
+  return Object.entries(obj)
+  .map(([clave, valor]) => `${clave}:${valor}`)
+  .join(',');
+
+}
+//console.log(getStrings("Las Vegas"));
+
+function sevenAte9(str) {
+  
+    return str.replace(/79(?=7)/g, '7');
+}
+//console.log(sevenAte9("79797"));
+
+function isLucky(n) {
+  
+  let a = n.toString().split("").map(x => parseInt(x)).reduce((x, total) => x+total);
+  return a % 9 == 0 ? true : false;
+}
+//console.log(isLucky(1098));
+
+function howManySmaller(arr,n){
+  
+  return arr.filter(x => parseFloat(x.toFixed(2)) < n).length;
+  
+}
+console.log(howManySmaller([1.234,1.235,1.228],1.24));
