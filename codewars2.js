@@ -4245,4 +4245,137 @@ function howManySmaller(arr,n){
   return arr.filter(x => parseFloat(x.toFixed(2)) < n).length;
   
 }
-console.log(howManySmaller([1.234,1.235,1.228],1.24));
+//console.log(howManySmaller([1.234,1.235,1.228],1.24));
+
+function initializeNames(name){
+  let nameArray = name.split(" ");
+  let r = "";
+
+  if(nameArray.length <= 2) return nameArray.join(" ");
+
+ 
+  for(let i = 0; i < nameArray.length; i++){
+    if(i == 0 || i == nameArray.length-1)
+        r += nameArray[i] + " ";
+    else
+        r += nameArray[i].slice(0,1)+". ";
+  }
+
+ return r.slice(0, -1);
+}
+//console.log(initializeNames("Alice Betty Catherine Davis"));
+
+function removeParentheses(s){
+
+  return s.replace(/\((.*?)\)/g, "");
+}
+//console.log(removeParentheses("a(b(c))"));
+
+function scale(strng, k, n) {
+
+  if(strng == "") return "";
+  
+  let lineas = [];
+  let array = strng.split("");
+  for(let i=0; i<array.length; i++){
+    if(array[i] != "\n")
+      lineas.push(array[i].repeat(k));
+    else {
+      lineas.push(array[i]);
+    }
+  }
+  let arrayWithLine = lineas.join("").split("\n");
+
+  return arrayWithLine.map(c => (c + "\n").repeat(n)).join("").slice(0, -1);
+
+}
+//console.log(scale("abcd\nefgh\nijkl\nmnop",2, 3));
+
+function autocomplete(input, dictionary){
+  
+  input = input.replace(/[^a-zA-Z]/g, "");
+  return dictionary.filter(x => x.slice(0, input.length) == input);
+
+}
+//console.log(autocomplete('ai', ['airplane','airport','apple','ball']));
+
+function consecutive(array) {
+
+    let s = array.sort((a,b) => a-b);
+    let difference = s[array.length-1] - s[0] + 1;
+    return difference - array.length;
+  }
+  //console.log(consecutive([29,4,47,-47,19,33,13,30,-49,-28,-13,-2,43,10,-20,35,-39,26,-44,-38,-45,38,-5,56]));
+
+  function dbSort(a){
+    
+    let numbers = a.filter(x => Number.isInteger(x) || x == 0 && x != '0').sort((a,b) => a-b);
+    let strings = a.filter(x => !Number.isInteger(x) || x == '0' && x != 0).sort();
+
+    return [...numbers, ...strings];
+    }
+    //console.log(dbSort(["Apple",46,"287",574,"Peach", 0, '0',"3","69",78,"Grape","423"]));
+
+    function save(sizes, hd) {
+      
+      let count = 0;
+      let total = 0;
+
+      if(sizes.length == 0 || sizes[0] > hd) return 0;
+      if(sizes.reduce((x , acc) => x + acc) < hd) return sizes.length;
+      
+      for(let i=0; i<sizes.length; i++){
+        total+=sizes[i];
+        if(total < hd)
+          count++;
+        if(total >= hd) return count;
+      }
+    }
+    //console.log(save([4, 4, 4, 3, 3], 11));
+
+function slope(points){
+
+ let r = (points[3] - points[1]) / (points[2] - points[0])+"";
+
+ if(r == -Infinity) return undefined;
+
+}
+//console.log( slope([19,3,20,3]));
+
+function rank(st, we, n) {
+
+  if(st.length == 0) return "No participants";
+  if(n > we.length) return "Not enough participants";
+
+  let arrayNames = st.split(",").map(x => x.toLowerCase());
+  let scores = [];
+  for(let i=0; i<we.length; i++) scores.push(0);
+
+  for(let i = 0; i<arrayNames.length; i++){
+    scores[i]+=arrayNames[i].length;
+    for(let j=0; j<arrayNames[i].length; j++){
+      scores[i]+=abc.indexOf(arrayNames[i].charAt(j)) + 1;
+    }
+  }
+
+  let totales = scores.map((x, i) => x * we[i]);
+
+  let dic = {};
+  for(let i = 0; i < arrayNames.length; i++){
+    dic[arrayNames[i]] = totales[i];
+  }
+  
+  let scoresOrdenados = Object.values(dic).sort((a,b) => b-a);
+  let winners = [];
+
+  for(let k in dic){
+    if(dic[k] == scoresOrdenados[n-1]){
+      winners.push(k.slice(0,1).toUpperCase()+k.slice(1));
+    }
+  }
+  winners = winners.sort();
+  return winners[0]; 
+}
+
+//rank("Addison,Jayden,Sofia,Michael,Andrew,Lily,Benjamin", [4, 2, 1, 4, 3, 1, 2], 4);
+console.log(rank("Liam,Matthew,James,Addison,Robert,Emma,Mia,Naoh,Abigail,Isabella,Olivia,Noah,Grace,Lyli,Ethan,Lagon,Jacob,Natalie,Willaim,Benjamin,Chloe,Logan,Emily", [3,6,4,1,1,2,5,4,4,1,4,2,3,4,3,5,6,3,6,1,5,3,5], 19));
