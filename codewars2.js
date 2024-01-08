@@ -4377,5 +4377,71 @@ function rank(st, we, n) {
   return winners[0]; 
 }
 
-//rank("Addison,Jayden,Sofia,Michael,Andrew,Lily,Benjamin", [4, 2, 1, 4, 3, 1, 2], 4);
-console.log(rank("Liam,Matthew,James,Addison,Robert,Emma,Mia,Naoh,Abigail,Isabella,Olivia,Noah,Grace,Lyli,Ethan,Lagon,Jacob,Natalie,Willaim,Benjamin,Chloe,Logan,Emily", [3,6,4,1,1,2,5,4,4,1,4,2,3,4,3,5,6,3,6,1,5,3,5], 19));
+//console.log(rank("Liam,Matthew,James,Addison,Robert,Emma,Mia,Naoh,Abigail,Isabella,Olivia,Noah,Grace,Lyli,Ethan,Lagon,Jacob,Natalie,Willaim,Benjamin,Chloe,Logan,Emily", [3,6,4,1,1,2,5,4,4,1,4,2,3,4,3,5,6,3,6,1,5,3,5], 19));
+
+function filterLongWords(sentence, n) {
+  return sentence.split(" ").filter(y => y.length > n);
+}
+//console.log(filterLongWords("The quick brown fox jumps over the lazy dog", 4));
+
+function bingo(a) {
+  const winnerNumbers = [2, 9, 7, 14, 15 ];
+  let yeshhh = [];
+  for(let i=0; i<a.length; i++){
+    for(let j=0; j<winnerNumbers.length; j++){
+      if(a[i] == winnerNumbers[j] && !yeshhh.includes(a[i])){
+          yeshhh.push(a[i]);
+      }
+    }
+  }
+  return yeshhh.length == 5 ? "WIN" : "LOSE";
+}
+//console.log(bingo([21,13,2,7,5,14,7,15,9,10]));
+
+function maxTriSum(numbers){
+  
+  let maximos = numbers.sort((a,b) => b-a);
+  let toSum = [];
+
+  for(let i=0; i<maximos.length; i++){
+    if(toSum.length == 3) break;
+    if(!toSum.includes(maximos[i])){
+        toSum.push(maximos[i]);
+    }
+  }
+  return toSum.reduce((x, acc) => x+acc);
+}
+//console.log(maxTriSum([3,2,6,8,2,3]));
+
+function isDivisible(...a){
+  return a.every(x => a[0] % x == 0);
+}
+//console.log(isDivisible(12,3,4));
+
+function evensAndOdds(num){
+  return num % 2 == 0 ? num.toString(2) : num.toString(16);
+}
+//console.log(evensAndOdds(47));
+
+function isValid(formula){
+  let valido = true;
+ 
+   if(formula.includes(1) && formula.includes(2)) valido = false;
+   if(formula.includes(3) && formula.includes(4)) valido = false;
+   if(formula.includes(5) && !formula.includes(6) || (!formula.includes(5) && formula.includes(6))) valido = false;
+   if(!formula.includes(7) && !formula.includes(8)) valido = false;
+ 
+   return valido;
+   }
+//console.log(isValid([1,3,7]));
+
+function power(x,y){
+  if(y == 0) return 1;
+
+  let r = x;
+  for(let i=1; i<y; i++){
+    r *= x;
+  }
+  return r;
+}
+//console.log(power(1,701270));
