@@ -4445,3 +4445,66 @@ function power(x,y){
   return r;
 }
 //console.log(power(1,701270));
+
+function getMissingElement(superImportantArray){
+  
+  let myNumbers = [0,1,2,3,4,5,6,7,8,9];
+  let ordered = superImportantArray.sort((a,b) => a-b);
+
+  return parseInt(myNumbers.filter(x => !ordered.includes(x)).join());
+}
+//console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4]));
+
+function orderFood(list) {
+  
+  let obj = {};
+  let meals = list.map(c => c.meal);
+
+  for(let i=0; i<meals.length; i++){
+    if(!obj.hasOwnProperty(meals[i])){
+      obj[meals[i]] = 1;
+    } else {
+      obj[meals[i]]++;
+    }
+  }
+  return JSON.stringify(obj);
+}
+
+var list1 = [
+  { firstName: 'Noah', lastName: 'M.', country: 'Switzerland', continent: 'Europe', age: 19, language: 'C', 
+    meal: 'vegetarian' },
+  { firstName: 'Anna', lastName: 'R.', country: 'Liechtenstein', continent: 'Europe', age: 52, language: 'JavaScript', 
+    meal: 'standard' },
+  { firstName: 'Ramona', lastName: 'R.', country: 'Paraguay', continent: 'Americas', age: 29, language: 'Ruby', 
+    meal: 'vegan' },
+  { firstName: 'George', lastName: 'B.', country: 'England', continent: 'Europe', age: 81, language: 'C', 
+    meal: 'vegetarian' },
+];
+
+//console.log(orderFood(list1));
+
+function extraPerfect(n){
+  let a = [];
+  for(let i=1; i<=n; i+=2)
+    a.push(i);
+    return a;
+}
+//console.log(extraPerfect(7));
+
+function countLettersAndDigits(input) {
+  return input.split("").filter(x => /[a-zA-Z0-9]/.test(x)).length;
+}
+//console.log(countLettersAndDigits("hel2!lo"));
+
+function jumpingNumber(n){
+  
+  if(n < 10) return "Jumping!!";
+
+  let digits = n.toString().split("").map(c => parseInt(c));
+  
+  for(let i=1; i<digits.length; i++){
+      if(Math.abs(digits[i] - digits[i-1]) != 1) return "Not!!";
+  }
+  return "Jumping!!";
+}
+console.log(jumpingNumber(123));
