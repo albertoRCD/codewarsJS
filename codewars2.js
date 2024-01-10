@@ -4507,4 +4507,53 @@ function jumpingNumber(n){
   }
   return "Jumping!!";
 }
-console.log(jumpingNumber(123));
+//console.log(jumpingNumber(123));
+
+function quadrant(x, y) {
+  if (x >= 0 && y >= 0) {
+    return 1;
+  } else if (x < 0 && y >= 0) {
+    return 2;
+  } else if (x < 0 && y < 0) {
+    return 3;
+  } else if (x >= 0 && y < 0) {
+    return 4;
+  }
+}
+//console.log(quadrant(3,5))
+
+function differenceOfSquares(n){
+
+    let allNumbers = 1;
+    let allNumbers2 = 1;
+    for(let i=2; i<=n; i++){
+      allNumbers+=i;
+    }
+    for(let i=2; i<=n; i++){
+      allNumbers2 += Math.pow(i, 2);
+    }
+    let firstNumber = Math.pow(allNumbers,2);
+    return Math.abs(firstNumber-allNumbers2);
+  }
+  //console.log(differenceOfSquares(10));
+
+  function findChildren(dancingBrigade) {
+    
+    let mothers = dancingBrigade.split("").sort().filter(x => x == x.toUpperCase()).join("");
+    let sons = dancingBrigade.split("").sort().filter(x => x == x.toLowerCase()).join("");
+    let result = "";
+
+    for(let i=0; i<mothers.length; i++){
+      for(let j=0; j<sons.length; j++){
+        if(mothers[i].toLowerCase() == sons[j]){
+          if(!result.includes(mothers[i])){
+            result+=mothers[i];
+          }
+          result+=sons[j];
+        }
+      }
+    }
+    return result;
+  }
+  //console.log(findChildren("uwwWUueEe"));
+
