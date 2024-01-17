@@ -4557,3 +4557,21 @@ function differenceOfSquares(n){
   }
   //console.log(findChildren("uwwWUueEe"));
 
+
+    function tripleX(str){
+  
+      let indexX = str.indexOf("x");
+      return indexX >= 0 && str[indexX+1] == 'x' && str[indexX+2] == 'x';
+    }
+    //console.log(tripleX("holawdxxxccdawdsx"));
+    
+    function getAges(sum,difference){
+      //24 - 4 => 14 - 10
+      //suma de 2 edades y diferencia entre ellos.
+
+      for(let edad1=sum-1, edad2=1; edad1>edad2; edad1--, edad2++){
+        if((edad1 - edad2) == difference) return [edad1, edad2].sort((a,b) => b-a);
+      }
+    }
+
+console.log(getAges(18,4));
