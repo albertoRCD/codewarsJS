@@ -4573,5 +4573,86 @@ function differenceOfSquares(n){
         if((edad1 - edad2) == difference) return [edad1, edad2].sort((a,b) => b-a);
       }
     }
+//console.log(getAges(18,4));
 
-console.log(getAges(18,4));
+function HQ9(code) {
+  let phrase = "99 bottles of beer on the wall, 99 bottles of beer. \n";
+  for(let i=98; i>1; i--){
+    phrase += "Take one down and pass it around, "+ i + " bottles of beer on the wall. \n" + i + " bottles of beer on the wall, " + i + " bottles of beer. \n";  
+  }
+  phrase += "Take one down and pass it around, 1 bottle of beer on the wall.\n1 bottle of beer on the wall, 1 bottle of beer.\nTake one down and pass it around, no more bottles of beer on the wall.\nNo more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.";
+  return code == 'H' ? 'Hello World!' : code == 'Q' ? 'Q' : code == '9' ? phrase : undefined;
+}
+//console.log(HQ9("9"));
+
+function searchNames( logins ){
+
+  let toReturn = [];
+  for(let i=0; i<logins.length; i++){
+    for(let j=0; j<logins[i].length; j++){
+      if(logins[i][j].includes('_')){
+        toReturn.push(logins[i]);
+      }
+    }
+  }
+return JSON.stringify(toReturn);
+}
+
+//console.log(searchNames([[ "foo", "foo@foo.com" ], [ "bar_", "bar@bar.com" ]]));
+
+function dirReduc(arr){
+
+  for(let i=0; i<arr.length; i++){
+    if(arr[i] == "NORTH" && arr[i+1] == "SOUTH" || arr[i] == "SOUTH" && arr[i+1] == "NORTH" || arr[i] == "WEST" && arr[i+1] == "EAST" || arr[i] == "EAST" && arr[i+1] == "WEST"){
+        arr.splice(i,2);
+        i = 0;
+    }
+  }
+
+  for(let i=0; i<arr.length; i++){
+    if(arr[i] == "NORTH" && arr[i+1] == "SOUTH" || arr[i] == "SOUTH" && arr[i+1] == "NORTH" || arr[i] == "WEST" && arr[i+1] == "EAST" || arr[i] == "EAST" && arr[i+1] == "WEST"){
+        arr.splice(i,2);
+        i = 0;
+    }
+  }
+
+  return arr;
+}
+
+//console.log(dirReduc(["NORTH","SOUTH","SOUTH","EAST","WEST","NORTH","NORTH"]));
+
+function nextHappyYear(year){
+  
+let repeat = true;
+
+while(repeat){
+  year++;
+  let yearString = year.toString();
+  repeat = false;
+
+for(let i=0; i<yearString.length; i++){
+  for(let j=i+1; j<yearString.length; j++){
+    if(yearString[i] === yearString[j]){
+      repeat = true;
+      break;
+    }
+  }
+  if(repeat) break;
+}
+}
+
+return year;
+}
+//console.log(nextHappyYear(1987));
+
+function prefill(n, v) {
+
+  let e = [];
+  for(let i=1; i<=parseInt(n); i++){
+    e.push(v);
+  }
+  return e;
+  
+}
+
+console.log(prefill(3,1));
