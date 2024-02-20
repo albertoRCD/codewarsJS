@@ -4654,5 +4654,35 @@ function prefill(n, v) {
   return e;
   
 }
+//console.log(prefill(3,1));
 
-console.log(prefill(3,1));
+function isLockNessMonster(s) {
+  return s.includes("3.50") || s.includes("three fifty") || s.includes("tree fiddy");
+}
+//console.log(isLockNessMonster("Your girlscout cookies are ready to ship. Your total comes to tree fiddy"));
+
+function flyBy(lamps, drone){
+/*
+ assert.strictEqual(flyBy('xxxxxx', '====T'), 'ooooox');
+    assert.strictEqual(flyBy('xxxxxxxxx', '==T'), 'oooxxxxxx'); 
+    assert.strictEqual(flyBy('xxxxxxxxxxxxxxx', '=========T'), 'ooooooooooxxxxx'); 
+*/
+let droneLength = drone.length;
+  if(droneLength > lamps.length) return 'o'.repeat(lamps.length);
+let secnPart = lamps.slice(droneLength);
+return 'o'.repeat(droneLength)+secnPart;
+
+}
+//console.log(flyBy('xxxxxxxxxx', '==========T'));
+
+function pairs(ar){
+  
+  let count = 0;
+  for(let i=0; i<ar.length - 1; i++){
+    if(Math.abs(ar[i] - ar[i+1]) == 1)
+      count++;
+  }
+return count;
+ };
+
+ console.log(pairs([-55, -56, -7, -6, 56, 55, 63, 62]));
