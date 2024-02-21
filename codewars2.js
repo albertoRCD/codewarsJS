@@ -4685,4 +4685,29 @@ function pairs(ar){
 return count;
  };
 
- console.log(pairs([-55, -56, -7, -6, 56, 55, 63, 62]));
+ //console.log(pairs([-55, -56, -7, -6, 56, 55, 63, 62]));
+
+ function catchSignChange(arr) {
+  
+  let arrString = arr.map(x => x.toString());
+  let count = 0;
+  let arrayCheck = [];
+    for(let i=0; i<arrString.length; i++){
+    if(arrString[i].includes("-")){
+      arrayCheck.push(0);
+    } else {
+      arrayCheck.push(1)
+    }
+  }
+  for(let i=0; i<arrayCheck.length; i++){
+    if(arrayCheck[i] == 0 && arrayCheck[i+1] == 1){
+      count++;
+    }
+    if(arrayCheck[i] == 1 && arrayCheck[i+1] == 0){
+      count++;
+    }
+  }
+  return count;
+}
+//console.log(catchSignChange([-47,84,-30,-11,-5,74,77]));
+
