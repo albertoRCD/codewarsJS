@@ -4711,3 +4711,57 @@ return count;
 }
 //console.log(catchSignChange([-47,84,-30,-11,-5,74,77]));
 
+const whosOnline = (friends) => {
+
+    let dict = {};
+  
+      for(let i=0; i<friends.length; i++){
+        if(friends[i].status == 'online' && friends[i].lastActivity <= 10){
+            if(dict.hasOwnProperty('online')){
+              dict['online'].push(friends[i].username);
+            } else {
+              dict['online'] = [friends[i].username];
+            }
+        } else if(friends[i].status == 'online' && friends[i].lastActivity >= 10){
+          if(dict.hasOwnProperty('away')){
+            dict['away'].push(friends[i].username);
+          } else {
+            dict['away'] = [friends[i].username];
+          }
+        }
+        if(friends[i].status == 'offline'){
+          if(dict.hasOwnProperty('offline')){
+            dict['offline'].push(friends[i].username);
+          } else {
+            dict['offline'] = [friends[i].username];
+          }
+        }
+      }
+      return dict;
+    }
+
+let ar =
+  [{
+    username: 'David',
+    status: 'online',
+    lastActivity: 10
+  }, {
+    username: 'Lucy', 
+    status: 'offline',
+    lastActivity: 22
+  }, {
+    username: 'Bob', 
+    status: 'online',
+    lastActivity: 104
+  }]
+  //console.log(whosOnline(ar));
+
+  function solution(pairs){
+   
+    let str = "";
+    for(let k in pairs){
+      str+= k+" = "+pairs[k]+",";
+    }
+return str.slice(0,-1);
+  }
+//console.log(solution({0: 'a', 'b': 2}));
