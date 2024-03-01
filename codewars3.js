@@ -112,3 +112,30 @@ function removeParentheses(s){
 
 //console.log(none([1,2,3,4,5],function(item){ return item > 5 }));
 
+// 7. https://www.codewars.com/kata/55ea5650fe9247a2ea0000a7/train/javascript
+
+function unscrambleEggs(word){
+  
+  return word.replaceAll('egg',"");
+
+}
+//console.log(unscrambleEggs("ceggodegge heggeregge"))
+
+// 8. https://www.codewars.com/kata/56fcfad9c7e1fa2472000034/train/javascript
+
+function evil(n) {
+  
+  return n.toString(2).split("").filter(x => x == '1').length % 2 == 0 ? "It's Evil!" : "It's Odious!";
+
+}
+//console.log(evil(11));
+
+// 9. https://www.codewars.com/kata/59f7fc109f0e86d705000043/train/javascript
+
+function divisibleByThree(str){
+
+  let strArray = str.split("").map(x => parseInt(x)).reduce((x, acc) => x + acc);
+  return strArray % 3 == 0 ? true : false;
+
+}
+//console.log(divisibleByThree("8409"));
