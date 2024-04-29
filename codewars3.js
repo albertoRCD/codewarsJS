@@ -139,3 +139,77 @@ function divisibleByThree(str){
 
 }
 //console.log(divisibleByThree("8409"));
+
+function duplicates(arr) {
+  let seen = {}; // Objeto para rastrear las ocurrencias de cada elemento
+  let duplicates = [];
+
+  // Recorrer el arreglo original
+  for (let i = 0; i < arr.length; i++) {
+    let currentItem = arr[i];
+    let itemString = JSON.stringify(currentItem); // Convertir el elemento a cadena
+
+    // Verificar si ya hemos visto este elemento (considerando su representación como cadena)
+    if (seen[itemString]) {
+      // Si es un duplicado y aún no se ha agregado a la lista de duplicados
+      if (!duplicates.includes(currentItem)) {
+        duplicates.push(currentItem);
+      }
+    } else {
+      seen[itemString] = true; // Marcar el elemento como visto por primera vez
+    }
+  }
+
+  return duplicates;
+}
+//console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, "5"]));
+
+function binaryToString(binaryString) {
+
+  if (binaryString.length === 0) {
+    return ''; // Return empty string for empty input
+  }
+
+  let decodedText = '';
+  // Loop through the binary string in increments of 8 characters
+  for (let i = 0; i < binaryString.length; i += 8) {
+    // Extract a segment of 8 characters (1 byte)
+    let byte = binaryString.slice(i, i + 8);
+    // Convert the binary byte to a decimal number
+    let charCode = parseInt(byte, 2);
+    // Convert the decimal number to its corresponding ASCII character
+    let char = String.fromCharCode(charCode);
+    // Append the character to the decoded text
+    decodedText += char;
+  }
+
+  return decodedText;
+}
+
+//console.log(binaryToString("01001011"));
+
+function consecutive(arr, a, b) {
+ 
+    let posA = arr.indexOf(a);
+    if(posA+1 == arr.indexOf(b) || posA-1 == arr.indexOf(b)){
+      return true;
+    } 
+    return false;
+}
+//console.log(consecutive([1, 3, 5, 7], 3, 1));
+
+function spacey(array) {
+  
+  let result = [array[0]];
+  for(let i=0, j=1; i<array.length-1; i++){
+    result.push(result[i]+array[i+1]);
+  }
+return result;
+}
+
+//console.log(spacey(['kevin', 'has','no','space']));
+
+function tailSwap(arr) {
+  // your code here
+  return arr;
+}
