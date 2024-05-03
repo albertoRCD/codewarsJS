@@ -209,7 +209,58 @@ return result;
 
 //console.log(spacey(['kevin', 'has','no','space']));
 
-function tailSwap(arr) {
-  // your code here
-  return arr;
+var flatten = function (array){
+  
+  return [].concat(...array);
 }
+
+//console.log(flatten([[1,2,3],["a","b","c"],[1,2,3]]));
+
+function dominator(arr) {
+  
+  let contador;
+  let numero;
+  let maximo = 1;
+
+  for(let i = 0; i<arr.length; i++){
+
+    contador = 0;
+    for(let j = 0; j<arr.length; j++){
+      if(arr[i] == arr[j]){
+        contador++;
+        if(contador > maximo){
+          maximo = contador;
+          numero = arr[i];
+        }
+      }
+    }
+  }
+return maximo > arr.length / 2 ? numero : -1;
+}
+
+//console.log(dominator([3,4,3,2,3,1,3,3]));
+
+function splitTheBill(x) {
+  
+  let keys = Object.keys(x);
+  let total = 0;
+  keys.forEach(element => {
+      total += x[element];
+  });
+
+  let toPay = total / keys.length;
+
+  let result = {};
+
+  keys.forEach(element => {
+    let difference = x[element] - toPay;
+
+    let roundedDifference = parseFloat(difference.toFixed(2));
+
+    result[element] = roundedDifference;
+  })
+
+return result;
+
+}
+console.log(splitTheBill({A: 20, B: 15, C: 10}));
