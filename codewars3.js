@@ -263,4 +263,19 @@ function splitTheBill(x) {
 return result;
 
 }
-console.log(splitTheBill({A: 20, B: 15, C: 10}));
+//console.log(splitTheBill({A: 20, B: 15, C: 10}));
+
+function moveTen(s){
+
+  let abecedario = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";
+
+  let r = "";
+
+  for(let i = 0; i < s.length; i++){
+    let index = abecedario.indexOf(s[i]) + 10;
+    r += abecedario[index];
+  }
+return r;
+}
+
+//console.log(moveTen("testcase"));
