@@ -467,4 +467,13 @@ function flickSwitch(arr){
   return a;
 }
 
-console.log(flickSwitch(["codewars", "flick", "code", "wars"]));
+//console.log(flickSwitch(["codewars", "flick", "code", "wars"]));
+
+function multiply2(number){
+  if(number < 0 ){
+    return number * Math.pow(5, Math.abs(number).toString().length);
+  }
+    return number * Math.pow(5, number.toString().length);
+}
+
+//console.log(multiply2(-32010480));
