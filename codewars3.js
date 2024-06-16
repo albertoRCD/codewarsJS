@@ -324,7 +324,7 @@ function dotCalculator(equation) {
 
   let firstSpace = equation.indexOf(" ");
   let lastSpace = equation.lastIndexOf(" ");
-  let firstDots = equation.slice(0,firstSpace).length;
+  let firstDots = equation.slice(0, firstSpace).length;
   let lastDots = equation.slice(lastSpace, -1).length
 
   for (let i = 0; i < equation.length; i++) {
@@ -344,31 +344,127 @@ function dotCalculator(equation) {
 }
 //console.log(dotCalculator('..... + ...............'));
 
-function gordon(a){
-  return a.toUpperCase().replaceAll('A','@').replaceAll(/[EIOU]/g, '*').split(" ").map(x => x+"!!!!").join(" ");
+function gordon(a) {
+  return a.toUpperCase().replaceAll('A', '@').replaceAll(/[EIOU]/g, '*').split(" ").map(x => x + "!!!!").join(" ");
 }
 
 //console.log(gordon('What feck damn cake'));
 
-function broken(x){
+function broken(x) {
   return x.split("").map(x => x == '0' ? '1' : '0').join("");
 }
 
 //console.log(broken('0010101010100000000'))
 
-function rotate(str){
-  
-    // => ["elloH", "lloHe", "loHel", "oHell", "Hello"]
+function rotate(str) {
 
-    if(str == "") return [];
-  
-    let array = [str.slice(1,)+[str[0]]];
-   
-       for(let i=0; i<str.length-1; i++){
-         let w = array[i].slice(1,)+[array[i].charAt(0)];
-         array.push(w);
-       }
-     return array;
-     }
+  // => ["elloH", "lloHe", "loHel", "oHell", "Hello"]
 
-  console.log(rotate("Hello"));
+  if (str == "") return [];
+
+  let array = [str.slice(1, ) + [str[0]]];
+
+  for (let i = 0; i < str.length - 1; i++) {
+    let w = array[i].slice(1, ) + [array[i].charAt(0)];
+    array.push(w);
+  }
+  return array;
+}
+
+//console.log(rotate("Hello"));
+
+function sorterBooks(textbooks) {
+  return textbooks.sort();
+}
+//console.log(sorterBooks(['Algebra', 'History', 'Geometry', 'English']));
+
+function toTime(seconds) {
+
+  let hours = seconds / 3600;
+  let resto = seconds % 3600;
+  let minutes = resto / 60;
+
+  return `${parseInt(hours)} hour(s) and ${parseInt(minutes)} minute(s)`;
+
+}
+//console.log(toTime(323500));
+
+function multiplyAll2(arr, v) {
+
+  let f = arr.map(x => x * v);
+
+  return f;
+}
+
+//console.log(multiplyAll2([1, 2, 3], 2));
+
+function reverseBits(n) {
+
+  if (n == Number.MAX_SAFE_INTEGER) return Number.MAX_SAFE_INTEGER;
+
+  let binN = n.toString(2);
+  let reverseBin = parseInt(binN.split("").reverse().join(""));
+
+  return parseInt(reverseBin, 2);
+}
+//console.log(reverseBits(Number.MAX_SAFE_INTEGER));
+
+function lastDigit(n, d) {
+
+  if (d <= 0) return [];
+
+  let r = n.toString().slice(-d).split("");
+
+  return r.map(x => x = parseInt(x));
+
+}
+
+//console.log(lastDigit(12345,3));
+
+function alternate(n, firstValue, secondValue) {
+
+  let array = [];
+
+  for (let i = 0; i < n; i++) {
+    if(i % 2 == 0)
+      array.push(firstValue);
+    else
+    array.push(secondValue);
+  }
+  return array;
+}
+
+//console.log(alternate(20, 'blue', 'red'));
+
+function flickSwitch(arr){
+  
+//['bicycle', 'jarmony', 'flick', 'sheep', 'flick'] ➞ [True, True, False, False, True]
+
+  let a = [];
+  let found = false;
+
+  arr.forEach(element => {
+      if(element != 'flick' && !found){
+        a.push(true);
+      }
+
+      else if(element != 'flick' && found){
+        a.push(false);
+      }
+
+      else if(element == 'flick' && !found){
+        a.push(false)
+        found = true;
+      }
+
+      else if(element == 'flick' && found){
+        a.push(true);
+        found = false;
+      }
+
+  });
+
+  return a;
+}
+
+console.log(flickSwitch(["codewars", "flick", "code", "wars"]));
