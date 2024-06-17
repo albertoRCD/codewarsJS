@@ -477,3 +477,43 @@ function multiply2(number){
 }
 
 //console.log(multiply2(-32010480));
+
+function calculate3(str) {
+  return  eval(str.replaceAll('plus', '+').replaceAll('minus','-')).toString();
+  }
+  //console.log(calculate3("1plus2plus3plus4"));
+
+  function scrollingText(text){
+    let array = [];
+    for(let i=0; i<text.length; i++){
+      array.push(text.toUpperCase().slice(i,text.length+1)+text.toUpperCase().slice(0,i));
+    }
+    return array;
+  }
+  //console.log(scrollingText('codewars'));
+
+  function numPrimorial(n){
+
+      const isPrime = (x) => {
+        if (x < 2) return false;
+        for (let i = 2; i <= Math.sqrt(x); i++) {
+          if (x % i === 0) return false;
+        }
+        return true;
+      }
+    
+      let f = [];
+      let i = 2; // Comenzar a buscar desde el primer número primo
+    
+      while (f.length < n) {
+        if (isPrime(i)) {
+          f.push(i);
+        }
+        i++;
+      }
+    
+      // Calcular el primorial
+      return f.reduce((acc, curr) => acc * curr, 1);
+  }
+
+  console.log(numPrimorial(3));
