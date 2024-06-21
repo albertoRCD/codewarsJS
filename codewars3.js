@@ -92,25 +92,15 @@ function alphabetWar(fight) {
 
 //console.log(alphabetWar("x*s*leyx***r*"));
 
-// 5. https://www.codewars.com/kata/5f7c38eb54307c002a2b8cc8/train/javascript
-
 function removeParentheses(s) {
 
-  let first = s.indexOf("(");
-  let last = s.lastIndexOf(")");
-  let difference = last - first;
-  let result = s.split("");
-
-  for (let i = 0; i < result.length; i++) {
-    if (i == first) {
-      result.splice(first, difference + 1);
-    }
+  while (/\([^()]*\)/.test(s)) {
+    s = s.replace(/\([^()]*\)/g, '');
   }
-  return result.join("");
-
+  return s;
 }
 
-//console.log(removeParentheses("a (bc d)e"));
+//console.log(removeParentheses("a(b(c))"));
 
 // 6. https://www.codewars.com/kata/545993ee52756d98ca0010e1/train/javascript
 
@@ -426,41 +416,35 @@ function alternate(n, firstValue, secondValue) {
   let array = [];
 
   for (let i = 0; i < n; i++) {
-    if(i % 2 == 0)
+    if (i % 2 == 0)
       array.push(firstValue);
     else
-    array.push(secondValue);
+      array.push(secondValue);
   }
   return array;
 }
 
 //console.log(alternate(20, 'blue', 'red'));
 
-function flickSwitch(arr){
-  
-//['bicycle', 'jarmony', 'flick', 'sheep', 'flick'] ➞ [True, True, False, False, True]
+function flickSwitch(arr) {
+
+  //['bicycle', 'jarmony', 'flick', 'sheep', 'flick'] ➞ [True, True, False, False, True]
 
   let a = [];
   let found = false;
 
   arr.forEach(element => {
-      if(element != 'flick' && !found){
-        a.push(true);
-      }
-
-      else if(element != 'flick' && found){
-        a.push(false);
-      }
-
-      else if(element == 'flick' && !found){
-        a.push(false)
-        found = true;
-      }
-
-      else if(element == 'flick' && found){
-        a.push(true);
-        found = false;
-      }
+    if (element != 'flick' && !found) {
+      a.push(true);
+    } else if (element != 'flick' && found) {
+      a.push(false);
+    } else if (element == 'flick' && !found) {
+      a.push(false)
+      found = true;
+    } else if (element == 'flick' && found) {
+      a.push(true);
+      found = false;
+    }
 
   });
 
@@ -469,51 +453,167 @@ function flickSwitch(arr){
 
 //console.log(flickSwitch(["codewars", "flick", "code", "wars"]));
 
-function multiply2(number){
-  if(number < 0 ){
+function multiply2(number) {
+  if (number < 0) {
     return number * Math.pow(5, Math.abs(number).toString().length);
   }
-    return number * Math.pow(5, number.toString().length);
+  return number * Math.pow(5, number.toString().length);
 }
 
 //console.log(multiply2(-32010480));
 
 function calculate3(str) {
-  return  eval(str.replaceAll('plus', '+').replaceAll('minus','-')).toString();
-  }
-  //console.log(calculate3("1plus2plus3plus4"));
+  return eval(str.replaceAll('plus', '+').replaceAll('minus', '-')).toString();
+}
+//console.log(calculate3("1plus2plus3plus4"));
 
-  function scrollingText(text){
-    let array = [];
-    for(let i=0; i<text.length; i++){
-      array.push(text.toUpperCase().slice(i,text.length+1)+text.toUpperCase().slice(0,i));
+function scrollingText(text) {
+  let array = [];
+  for (let i = 0; i < text.length; i++) {
+    array.push(text.toUpperCase().slice(i, text.length + 1) + text.toUpperCase().slice(0, i));
+  }
+  return array;
+}
+//console.log(scrollingText('codewars'));
+
+function numPrimorial(n) {
+
+  const isPrime = (x) => {
+    if (x < 2) return false;
+    for (let i = 2; i <= Math.sqrt(x); i++) {
+      if (x % i === 0) return false;
     }
-    return array;
-  }
-  //console.log(scrollingText('codewars'));
-
-  function numPrimorial(n){
-
-      const isPrime = (x) => {
-        if (x < 2) return false;
-        for (let i = 2; i <= Math.sqrt(x); i++) {
-          if (x % i === 0) return false;
-        }
-        return true;
-      }
-    
-      let f = [];
-      let i = 2; // Comenzar a buscar desde el primer número primo
-    
-      while (f.length < n) {
-        if (isPrime(i)) {
-          f.push(i);
-        }
-        i++;
-      }
-    
-      // Calcular el primorial
-      return f.reduce((acc, curr) => acc * curr, 1);
+    return true;
   }
 
-  console.log(numPrimorial(3));
+  let f = [];
+  let i = 2; // Comenzar a buscar desde el primer número primo
+
+  while (f.length < n) {
+    if (isPrime(i)) {
+      f.push(i);
+    }
+    i++;
+  }
+
+  // Calcular el primorial
+  return f.reduce((acc, curr) => acc * curr, 1);
+}
+
+//  console.log(numPrimorial(3));
+
+
+function whoIsWinner(piecesPositionList) {
+
+  let d = {};
+  for (let i = 0; i < piecesPositionList.length; i++) {
+
+    let element = piecesPositionList[i];
+
+    if (d[element]) {
+      d[element]++;
+    } else {
+      d[element] = 1;
+    }
+
+    if (d[element] == 4) {
+      return element.slice(2, );
+    }
+  };
+
+  return "Draw";
+}
+
+/*console.log(whoIsWinner(["A_Yellow",
+  "B_Red",
+  "B_Yellow",
+  "C_Red",
+  "G_Yellow",
+  "C_Red",
+  "C_Yellow", 
+  "D_Red",
+  "G_Yellow",
+  "D_Red",
+  "G_Yellow",
+  "D_Red",
+  "F_Yellow",
+  "E_Red",
+  "D_Yellow"]));*/
+
+function remove3(string) {
+  return string.replace(/([a-zA-Z])!+/g, '$1');
+}
+//console.log(remove3("hi!! hi! !hii"));
+
+function balance(left, right) {
+
+  let resultL = 0;
+  let resultR = 0;
+
+  for (let i = 0; i < left.length; i++) {
+    if (left[i] == '!') resultL += 2;
+    else if (left[i] == '?') resultL += 3;
+  }
+
+  for (let i = 0; i < right.length; i++) {
+    if (right[i] == '!') resultR += 2;
+    else if (right[i] == '?') resultR += 3;
+  }
+
+  return resultL > resultR ? 'Left' : resultL < resultR ? 'Right' : 'Balance';
+
+}
+
+//console.log(balance('??!', '!!?'));
+
+function nicknameGenerator(name) {
+  //https://codewars.com/kata/57faf32df815ebd49e000117/train/javascript
+  const vogels = ['a', 'e', 'i', 'o', 'u'];
+
+  return vogels.includes(name.charAt(3)) ? name.slice(0, 4) : name.slice(0, 3);
+
+}
+
+//console.log(nicknameGenerator("Samunda"));
+
+const findAll = (array, n) => {
+  let asd = [];
+  array.map((x, i) => x == n && asd.push(i));
+  return asd;
+}
+//console.log(findAll([6, 9, 3, 4, 3, 82, 11], 3));
+
+function sumNoDuplicates(numList) {
+
+  let norespes = [];
+
+  for (let i = 0; i < numList.length; i++) {
+    if (numList.indexOf(numList[i]) == numList.lastIndexOf(numList[i])) {
+      norespes.push(numList[i]);
+    }
+  }
+  return norespes.reduce((x, acc) => x + acc);
+}
+//console.log(sumNoDuplicates([5, 6, 10, 3, 10, 10, 6, 7, 0, 9, 1, 1, 6, 3, 1]));
+
+const prevMultOfThree = n => {
+
+  if (n % 3 == 0) return n;
+  if (n.toString().length == 1){
+    if(parseInt(n) % 3 != 0) return null;
+  }
+  let l = n.toString();
+  let cut = l.length-1;
+
+  do {
+      l = l.slice(0, cut);
+      if(parseInt(l) % 3 == 0) return parseInt(l);
+      if(l.length == 1) {
+        if(parseInt(l) % 3 != 0) return null;
+      }
+      cut--;
+
+  } while (true);
+
+}
+//console.log(prevMultOfThree(2));
