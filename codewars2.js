@@ -4765,3 +4765,4 @@ let ar =
 return str.slice(0,-1);
   }
 //console.log(solution({0: 'a', 'b': 2}));
+

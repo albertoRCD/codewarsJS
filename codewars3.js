@@ -599,21 +599,87 @@ function sumNoDuplicates(numList) {
 const prevMultOfThree = n => {
 
   if (n % 3 == 0) return n;
-  if (n.toString().length == 1){
-    if(parseInt(n) % 3 != 0) return null;
+  if (n.toString().length == 1) {
+    if (parseInt(n) % 3 != 0) return null;
   }
   let l = n.toString();
-  let cut = l.length-1;
+  let cut = l.length - 1;
 
   do {
-      l = l.slice(0, cut);
-      if(parseInt(l) % 3 == 0) return parseInt(l);
-      if(l.length == 1) {
-        if(parseInt(l) % 3 != 0) return null;
-      }
-      cut--;
+    l = l.slice(0, cut);
+    if (parseInt(l) % 3 == 0) return parseInt(l);
+    if (l.length == 1) {
+      if (parseInt(l) % 3 != 0) return null;
+    }
+    cut--;
 
   } while (true);
 
 }
 //console.log(prevMultOfThree(2));
+
+function evenChars(string) {
+
+  if (string.length < 2 || string.length > 100) return "invalid string";
+  return string.split("").map((x, i) => ++i % 2 == 0 ? x : 0).filter(x => x != 0);
+
+}
+//console.log(evenChars("1234"));
+
+function mergeArrays(a, b) {
+
+  return [...new Set([...a, ...b])].sort((x, y) => x - y);
+}
+//console.log(mergeArrays([4, 8, 1, 6], [2, 4, 40, -1, 3, 6]));
+
+function findOddNames(list) { 
+  
+  let names = [];
+  let validNames = [];
+  for(let i=0; i<list.length; i++)
+    names.push(list[i].firstName);
+
+  for(let i=0; i<names.length; i++){
+    let suma = 0;
+      for(let j=0; j<names[i].length; j++){
+        suma+=names[i].charCodeAt(j);
+      }
+      suma % 2 != 0 && validNames.push(names[i]); 
+  }
+ 
+  let resultado = [];
+  for(let i=0; i<list.length; i++){
+    if(validNames.includes(list[i].firstName)){
+      resultado.push(list[i]);
+    }
+  }
+  return resultado;
+}
+
+list1 = [
+  { firstName: 'Aba', lastName: 'N.', country: 'Ghana', continent: 'Africa', age: 21, language: 'Python' },
+  { firstName: 'Abb', lastName: 'O.', country: 'Israel', continent: 'Asia', age: 39, language: 'Java' },
+  { firstName: 'Abb', lastName: 'O.', country: 'Israel', continent: 'Asia', age: 39, language: 'Java' }
+];
+
+//console.log(findOddNames(list1));
+
+function wordSearch(query, seq){
+
+    let indices = [];
+    let queryM = query.toLowerCase();
+    for(let i=0; i<seq.length; i++){
+      if(seq[i].toLowerCase().includes(queryM))
+        indices.push(i);
+    }
+
+    let r = [];
+    for(let i=0; i<seq.length; i++){
+      if(indices.includes(i)){
+        r.push(seq[i]);
+      }
+    }
+    return r.length != 0 ? r : ['Empty'];
+}
+
+console.log(wordSearch("ab", ["za", "aB", "Abc", "zAB", "zbc"]));
