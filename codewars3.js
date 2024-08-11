@@ -682,4 +682,24 @@ function wordSearch(query, seq){
     return r.length != 0 ? r : ['Empty'];
 }
 
-console.log(wordSearch("ab", ["za", "aB", "Abc", "zAB", "zbc"]));
+//console.log(wordSearch("ab", ["za", "aB", "Abc", "zAB", "zbc"]));
+
+function isIntArray(arr) {
+    return !arr.some(x => !Number(x));
+}
+//console.log(isIntArray([]));
+
+function nextItem(xs, item) {
+  
+    if(typeof xs === 'string'){
+      xs = xs.split('');
+    }
+
+    for(let i=0; i<xs.length; i++){
+      if(xs[i] === item){
+        return xs[i+1];
+      }
+    }
+     return undefined
+}
+//console.log(nextItem('asd', 'a'));
