@@ -632,91 +632,141 @@ function mergeArrays(a, b) {
 }
 //console.log(mergeArrays([4, 8, 1, 6], [2, 4, 40, -1, 3, 6]));
 
-function findOddNames(list) { 
-  
+function findOddNames(list) {
+
   let names = [];
   let validNames = [];
-  for(let i=0; i<list.length; i++)
+  for (let i = 0; i < list.length; i++)
     names.push(list[i].firstName);
 
-  for(let i=0; i<names.length; i++){
+  for (let i = 0; i < names.length; i++) {
     let suma = 0;
-      for(let j=0; j<names[i].length; j++){
-        suma+=names[i].charCodeAt(j);
-      }
-      suma % 2 != 0 && validNames.push(names[i]); 
+    for (let j = 0; j < names[i].length; j++) {
+      suma += names[i].charCodeAt(j);
+    }
+    suma % 2 != 0 && validNames.push(names[i]);
   }
- 
+
   let resultado = [];
-  for(let i=0; i<list.length; i++){
-    if(validNames.includes(list[i].firstName)){
+  for (let i = 0; i < list.length; i++) {
+    if (validNames.includes(list[i].firstName)) {
       resultado.push(list[i]);
     }
   }
   return resultado;
 }
 
-list1 = [
-  { firstName: 'Aba', lastName: 'N.', country: 'Ghana', continent: 'Africa', age: 21, language: 'Python' },
-  { firstName: 'Abb', lastName: 'O.', country: 'Israel', continent: 'Asia', age: 39, language: 'Java' },
-  { firstName: 'Abb', lastName: 'O.', country: 'Israel', continent: 'Asia', age: 39, language: 'Java' }
+list1 = [{
+    firstName: 'Aba',
+    lastName: 'N.',
+    country: 'Ghana',
+    continent: 'Africa',
+    age: 21,
+    language: 'Python'
+  },
+  {
+    firstName: 'Abb',
+    lastName: 'O.',
+    country: 'Israel',
+    continent: 'Asia',
+    age: 39,
+    language: 'Java'
+  },
+  {
+    firstName: 'Abb',
+    lastName: 'O.',
+    country: 'Israel',
+    continent: 'Asia',
+    age: 39,
+    language: 'Java'
+  }
 ];
 
 //console.log(findOddNames(list1));
 
-function wordSearch(query, seq){
+function wordSearch(query, seq) {
 
-    let indices = [];
-    let queryM = query.toLowerCase();
-    for(let i=0; i<seq.length; i++){
-      if(seq[i].toLowerCase().includes(queryM))
-        indices.push(i);
-    }
+  let indices = [];
+  let queryM = query.toLowerCase();
+  for (let i = 0; i < seq.length; i++) {
+    if (seq[i].toLowerCase().includes(queryM))
+      indices.push(i);
+  }
 
-    let r = [];
-    for(let i=0; i<seq.length; i++){
-      if(indices.includes(i)){
-        r.push(seq[i]);
-      }
+  let r = [];
+  for (let i = 0; i < seq.length; i++) {
+    if (indices.includes(i)) {
+      r.push(seq[i]);
     }
-    return r.length != 0 ? r : ['Empty'];
+  }
+  return r.length != 0 ? r : ['Empty'];
 }
 
 //console.log(wordSearch("ab", ["za", "aB", "Abc", "zAB", "zbc"]));
 
 function isIntArray(arr) {
-    return !arr.some(x => !Number(x));
+  return !arr.some(x => !Number(x));
 }
 //console.log(isIntArray([]));
 
 function nextItem(xs, item) {
-  
-    if(typeof xs === 'string'){
-      xs = xs.split('');
-    }
 
-    for(let i=0; i<xs.length; i++){
-      if(xs[i] === item){
-        return xs[i+1];
-      }
+  if (typeof xs === 'string') {
+    xs = xs.split('');
+  }
+
+  for (let i = 0; i < xs.length; i++) {
+    if (xs[i] === item) {
+      return xs[i + 1];
     }
-     return undefined
+  }
+  return undefined
 }
 //console.log(nextItem('asd', 'a'));
 
-function mean(lst){
-  
-  let numbers = lst.filter(x =>  Number(x));
+function mean(lst) {
+
+  let numbers = lst.filter(x => Number(x));
   let letters = lst.filter(l => !Number(l) && l != '0');
 
-  return [parseFloat(numbers.map( x => x * 0.1).reduce((x, acc) => x + acc).toFixed(1)), letters.join('')];
+  return [parseFloat(numbers.map(x => x * 0.1).reduce((x, acc) => x + acc).toFixed(1)), letters.join('')];
 }
 //console.log(mean(["u", "6", "d","1","i", "w", "6", "s", "t", "4", "a", "6", "g", "1", "2", "w", "8", "o", "2", "0"]));
 
-function stringMerge(string1, string2, letter){
+function stringMerge(string1, string2, letter) {
 
   let index = string1.indexOf(letter);
   let index2 = string2.indexOf(letter);
-  return string1.slice(0, index)+string2.slice(index2);
+  return string1.slice(0, index) + string2.slice(index2);
 }
-console.log(stringMerge("apowiejfoiajsf","iwahfeijouh", "j"));
+//console.log(stringMerge("apowiejfoiajsf","iwahfeijouh", "j"));
+
+function typeOfSum(a, b) {
+  let r = a + b;
+  return typeof (r);
+}
+//console.log(typeOfSum('a', 4 ));
+
+function findMissingNumber(sequence) {
+
+  if(sequence.length == 0) return 0;
+  let valid = true;
+  if ((/[a-zA-Z]/).test(sequence)) return 1;
+
+
+  let ordered = sequence.split(" ").map(x => parseInt(x)).sort();
+  let firstNumber = ordered[0];
+  let lastNumber = ordered[ordered.length - 1];
+
+  for (let i = firstNumber, o = 0; i <= lastNumber; i++, o++) {
+    if (i != ordered[o]) {
+      valid = false;
+      return i;
+    }
+  }
+
+  if(valid && firstNumber != 1) return 1;
+  else if(valid && firstNumber == 1) return 0;
+}
+
+//console.log(findMissingNumber("1 2 3 4 5"));
