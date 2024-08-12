@@ -703,3 +703,20 @@ function nextItem(xs, item) {
      return undefined
 }
 //console.log(nextItem('asd', 'a'));
+
+function mean(lst){
+  
+  let numbers = lst.filter(x =>  Number(x));
+  let letters = lst.filter(l => !Number(l) && l != '0');
+
+  return [parseFloat(numbers.map( x => x * 0.1).reduce((x, acc) => x + acc).toFixed(1)), letters.join('')];
+}
+//console.log(mean(["u", "6", "d","1","i", "w", "6", "s", "t", "4", "a", "6", "g", "1", "2", "w", "8", "o", "2", "0"]));
+
+function stringMerge(string1, string2, letter){
+
+  let index = string1.indexOf(letter);
+  let index2 = string2.indexOf(letter);
+  return string1.slice(0, index)+string2.slice(index2);
+}
+console.log(stringMerge("apowiejfoiajsf","iwahfeijouh", "j"));
