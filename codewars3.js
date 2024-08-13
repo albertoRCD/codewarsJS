@@ -749,7 +749,7 @@ function typeOfSum(a, b) {
 
 function findMissingNumber(sequence) {
 
-  if(sequence.length == 0) return 0;
+  if (sequence.length == 0) return 0;
   let valid = true;
   if ((/[a-zA-Z]/).test(sequence)) return 1;
 
@@ -765,8 +765,48 @@ function findMissingNumber(sequence) {
     }
   }
 
-  if(valid && firstNumber != 1) return 1;
-  else if(valid && firstNumber == 1) return 0;
+  if (valid && firstNumber != 1) return 1;
+  else if (valid && firstNumber == 1) return 0;
 }
 
 //console.log(findMissingNumber("1 2 3 4 5"));
+
+String.prototype.isLetter = function () {
+  return /^[a-zA-Z]$/.test(this);
+}
+
+function beggars(values, n) {
+  var outputValues = [];
+  for (var i = 0; i < n; i++) {
+    var sum = 0;
+    for (var j = i; j < values.length; j += n) {
+      sum += values[j];
+    }
+    outputValues.push(sum);
+  }
+  return outputValues;
+}
+//console.log(beggars([1,2,3,4,5],1));
+
+function solve(arr) {
+  let r = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let highNumber = Math.max(...arr.slice(i));
+    if (highNumber == arr[i]) {
+      r.push(highNumber);
+    }
+  }
+  return Array.from(new Set(r));
+}
+//console.log(solve([16,17,14,3,14,5,2]));
+
+sortme = function (names) {
+  /* Explicación:
+arr.slice(): Crea una copia superficial del array original.
+sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase())):
+Convierte cada cadena a minúsculas usando toLowerCase() dentro de la función de comparación.
+Luego, localeCompare() compara las cadenas, ignorando las diferencias entre mayúsculas y minúsculas. */
+  return names.slice().sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+}
+//console.log(sortme(["Hello", "there", "I'm", "fine"]));
