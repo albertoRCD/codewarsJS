@@ -810,3 +810,19 @@ Luego, localeCompare() compara las cadenas, ignorando las diferencias entre mayÃ
   return names.slice().sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 }
 //console.log(sortme(["Hello", "there", "I'm", "fine"]));
+
+function capital(capitals){
+
+  return "The capital of " + capitals[0]['state'] + " is " + capitals[0]['capital'];
+}
+//console.log(capital([{state: 'Maine', capital: 'Augusta'}]));
+
+function circleArea(radius) {
+  if (radius <= 0) {
+    throw new Error("Radius must be a positive number.");
+}
+  return parseFloat((Math.PI * Math.pow(radius, 2)).toFixed(3));
+}
+//console.log(circleArea(68));
+
+
