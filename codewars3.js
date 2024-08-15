@@ -825,4 +825,27 @@ function circleArea(radius) {
 }
 //console.log(circleArea(68));
 
+function sumSquares(array) {
+  return array.map(x => Math.pow(x,2)).reduce((x, acc) => x + acc);
+}
+//console.log(sumSquares([1,2,3,4,5]));
 
+function freqSeq(str, sep) {
+  let d = {};
+  for(let i=0; i<str.length; i++){
+    if(d[str[i]]){
+      d[str[i]]++;
+    } else {
+      d[str[i]] = 1;
+    }
+  }
+  let r = "";
+
+  for(let i=0; i<str.length; i++){
+    if(d.hasOwnProperty(str[i])){
+      r += d[str[i]]+sep;
+    }
+  }
+  return r.slice(0, r.length-1);
+}
+//console.log(freqSeq('hello world', '-'));
