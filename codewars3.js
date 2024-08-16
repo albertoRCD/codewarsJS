@@ -566,16 +566,6 @@ function balance(left, right) {
 
 //console.log(balance('??!', '!!?'));
 
-function nicknameGenerator(name) {
-  //https://codewars.com/kata/57faf32df815ebd49e000117/train/javascript
-  const vogels = ['a', 'e', 'i', 'o', 'u'];
-
-  return vogels.includes(name.charAt(3)) ? name.slice(0, 4) : name.slice(0, 3);
-
-}
-
-//console.log(nicknameGenerator("Samunda"));
-
 const findAll = (array, n) => {
   let asd = [];
   array.map((x, i) => x == n && asd.push(i));
@@ -811,7 +801,7 @@ Luego, localeCompare() compara las cadenas, ignorando las diferencias entre may√
 }
 //console.log(sortme(["Hello", "there", "I'm", "fine"]));
 
-function capital(capitals){
+function capital(capitals) {
 
   return "The capital of " + capitals[0]['state'] + " is " + capitals[0]['capital'];
 }
@@ -820,20 +810,20 @@ function capital(capitals){
 function circleArea(radius) {
   if (radius <= 0) {
     throw new Error("Radius must be a positive number.");
-}
+  }
   return parseFloat((Math.PI * Math.pow(radius, 2)).toFixed(3));
 }
 //console.log(circleArea(68));
 
 function sumSquares(array) {
-  return array.map(x => Math.pow(x,2)).reduce((x, acc) => x + acc);
+  return array.map(x => Math.pow(x, 2)).reduce((x, acc) => x + acc);
 }
 //console.log(sumSquares([1,2,3,4,5]));
 
 function freqSeq(str, sep) {
   let d = {};
-  for(let i=0; i<str.length; i++){
-    if(d[str[i]]){
+  for (let i = 0; i < str.length; i++) {
+    if (d[str[i]]) {
       d[str[i]]++;
     } else {
       d[str[i]] = 1;
@@ -841,11 +831,74 @@ function freqSeq(str, sep) {
   }
   let r = "";
 
-  for(let i=0; i<str.length; i++){
-    if(d.hasOwnProperty(str[i])){
-      r += d[str[i]]+sep;
+  for (let i = 0; i < str.length; i++) {
+    if (d.hasOwnProperty(str[i])) {
+      r += d[str[i]] + sep;
     }
   }
-  return r.slice(0, r.length-1);
+  return r.slice(0, r.length - 1);
 }
 //console.log(freqSeq('hello world', '-'));
+
+//https://www.codewars.com/kata/58c9322bedb4235468000019/javascript
+
+function isVeryEvenNumber(n) {
+
+  let nstring = n.toString();
+  let r = 0;
+
+  for (let i = 0; i < nstring.length; i++) {
+    r += parseInt(nstring[i]);
+  }
+  while (r >= 10) {
+    if (r >= 10) {
+      nstring = r.toString();
+      r = 0;
+      for (let i = 0; i < nstring.length; i++) {
+        r += parseInt(nstring[i]);
+      }
+    }
+  }
+  return r % 2 == 0 && true;
+}
+//console.log(isVeryEvenNumber(856));
+
+function nicknameGenerator(name) {
+  if (name.length <= 3) return "Error: Name too short";
+  const vogels = ['a', 'e', 'i', 'o', 'u'];
+  return vogels.indexOf(name.charAt(2)) >= 0 ? name.slice(0, 4) : name.slice(0, 3);
+}
+//console.log(nicknameGenerator('Robert'));
+
+function twoArePositive(a, b, c) {
+  return [a,b,c].filter(x => x > 0).length == 2;
+}
+//console.log(twoArePositive(4, 6, 0));
+
+Object.defineProperty(Array.prototype, 'numberOfOccurrences',{ 
+  value : function numberOfOccurrences(element) {
+    return this.filter(x => x === element).length;
+  }
+});
+//console.log(numberOfOccurrences([1,2,3,4,5], 3));
+
+var AmIAfraid = function(day, num){
+    switch(day){
+      case 'Monday':
+        return num == 12 && true;
+      case 'Tuesday':
+        return num > 96 && true;
+      case 'Wednesday':
+        return num == 34 && true;
+      case 'Thursday':
+        return num == 0 && true;
+      case 'Friday':
+        return num % 2 == 0 && true;
+      case 'Saturday':
+        return num == 56 && true;
+      case 'Sunday':
+        return num == 666 || num == -666 && true;
+      default: return false; 
+    }
+}
+//console.log(AmIAfraid('Monday', 12));
