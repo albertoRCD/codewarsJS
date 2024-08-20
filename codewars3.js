@@ -966,4 +966,59 @@ function rakeGarden(garden) {
     return r.join(" ");
 
 }
-console.log(rakeGarden('slug spider rock gravel gravel gravel gravel gravel gravel gravel ant snail'));
+//console.log(rakeGarden('slug spider rock gravel gravel gravel gravel gravel gravel gravel ant snail'));
+
+function countWords(str) {
+  
+  if(str == "") return 0;
+  return str.trim().split(/\s+/).length;
+}
+//console.log(countWords(""));
+
+function unusedDigits(...k) {
+  let nums = ['0','1','2','3','4','5','6','7','8','9'];
+  let nums2 = k.join("").split("");
+  let r = "";
+  for(let i=0; i<nums.length; i++){
+    if(!nums2.includes(nums[i])){
+      r+= nums[i];
+    }
+  }
+  return r;
+}
+//console.log(unusedDigits(12, 34, 56, 78));
+
+function solveNums(arr){
+
+  arr.sort((a, b) => a - b);
+
+  let nums = [];
+  while (arr.length) {
+    if (arr.length) nums.push(arr.pop()); // Add the max value
+    if (arr.length) nums.push(arr.shift()); // Add the min value
+  }
+  return nums;
+}
+//console.log(solveNums([78,79,52,87,16,74,31,63,80]));
+
+function killer(suspectInfo, dead) {
+  let r = {};
+  for(let k in suspectInfo){
+    for(let i=0; i<dead.length; i++){
+      if(suspectInfo[k].includes(dead[i])){
+        if(r[k]) r[k]++;
+        else r[k] = 1;
+      }
+    }
+  }
+  for(let s in r){
+    if(r[s] == dead.length){
+      return s;
+    }
+  }
+}
+/*console.log(killer({'James': ['Jacob', 'Bill', 'Lucas'],
+  'Johnny': ['David', 'Kyle', 'Lucas'],
+  'Peter': ['Lucy', 'Kyle']},['Lucas', 'Bill']));*/
+
+  
