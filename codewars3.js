@@ -1021,4 +1021,35 @@ function killer(suspectInfo, dead) {
   'Johnny': ['David', 'Kyle', 'Lucas'],
   'Peter': ['Lucy', 'Kyle']},['Lucas', 'Bill']));*/
 
+  function mergeArrays(a, b) {
+
+    let r = [];
+      for(let i=0; i<a.length; i++){
+          if(a[i] != undefined)
+            r.push(a[i]);  
+        for(let j=i; j<b.length; j++){
+          r.push(b[j]);
+          break;
+        }
+      }
+      if(b.length > a.length){
+        r.push(...b.slice(a.length));
+      }
+      return r;
+  }
+  //console.log(mergeArrays(['b', 'r', 'a', 'u', 'r', 's', 'e', 'q', 'z'], [2, 5, 8, 23, 67, 6,2, 5, 8, 23, 67, 6,2, 5, 8, 23, 67, 6]));
+
+  function HQ9(code) {
+    let phrase = "99 bottles of beer on the wall, 99 bottles of beer. \n";
+ 
+   for(let i=98; i>1; i--){
+     phrase += "Take one down and pass it around, "+ i + " bottles of beer on the wall. \n" + i + " bottles of beer on the wall, " + i + " bottles of beer. \n";  
+   }
   
+   phrase += "Take one down and pass it around, 1 bottle of beer on the wall.\n1 bottle of beer on the wall, 1 bottle of beer.\nTake one down and pass it around, no more bottles of beer on the wall.\nNo more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.";
+ 
+   return code == 'H' ? 'Hello World!' : code == 'Q' ? 'Q' : code == '9' ? phrase : undefined;
+ }
+ //console.log(HQ9('9'));
+
+ 
