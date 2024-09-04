@@ -1052,4 +1052,10 @@ function killer(suspectInfo, dead) {
  }
  //console.log(HQ9('9'));
 
- 
+ function modifyMultiply (str,loc,num) {
+
+    let array = str.split(" ");
+    let word = array[loc]+"-";
+    return word.repeat(num).slice(0, -1);
+  } 
+  //console.log(modifyMultiply('hola que tal', 2, 5));
