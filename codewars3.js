@@ -1059,3 +1059,46 @@ function killer(suspectInfo, dead) {
     return word.repeat(num).slice(0, -1);
   } 
   //console.log(modifyMultiply('hola que tal', 2, 5));
+
+  function pendulum(values) { 
+    let ordenados = values.sort((a,b) => a-b);
+    let r = [];
+    for(let i=0; i<ordenados.length; i++){
+      if(i % 2 != 0){
+        r.push(ordenados[i]);
+      } else {
+        r.unshift(ordenados[i])
+      }
+    }
+    return r;
+}
+//console.log(pendulum([6, 6, 8 ,5 ,10])); //==> [10, 6, 5, 6, 8]]))
+
+function longestPalindrome(s) {
+
+  function isPalindrome(str) {
+    // Check if a given string is a palindrome by comparing with its reverse
+    return str === str.split('').reverse().join('');
+  }
+    let maxLength = 0;
+    
+    // If the string is empty, return 0
+    if (s.length === 0) return 0;
+    
+    // Loop over all possible substrings
+    for (let i = 0; i < s.length; i++) {
+        for (let j = i + 1; j <= s.length; j++) {
+            const substring = s.slice(i, j);
+            
+            // Check if it's a palindrome and update the maxLength if it's longer
+            if (isPalindrome(substring) && substring.length > maxLength) {
+                maxLength = substring.length;
+            }
+        }
+    }
+    
+    return maxLength;
+}
+
+console.log(longestPalindrome("zzbaabcd"));
+
