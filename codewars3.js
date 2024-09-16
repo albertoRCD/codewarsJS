@@ -1095,10 +1095,67 @@ function longestPalindrome(s) {
                 maxLength = substring.length;
             }
         }
-    }
-    
+    }   
     return maxLength;
 }
+//console.log(longestPalindrome("zzbaabcd"));
 
-console.log(longestPalindrome("zzbaabcd"));
+class Dictionary {
+  d = {};
+  constructor() {
+    
+  }
+  
+  newEntry(key, value) {
+    this.d[key] = value;
+  }
+  
+  look(key) {
+    if(!this.d[key])  return "Can't find entry for " + key;
+    return this.d[key];
+  }
+}
+let d = new Dictionary();
+d.newEntry("Apple", "A fruit that grows on trees");
+//console.log(d.look("Apple"));
+
+function evenOrOdd(str) {
+  //even = par . odd = impar
+  let even = 0;
+  let odd = 0;
+
+  for(let i=0; i<str.length; i++){
+    if(parseInt(str[i]) % 2 == 0){
+      even += parseInt(str[i]);
+    } else {
+      odd += parseInt(str[i]);
+    }
+  }
+  return even > odd ? 'Even is greater than Odd' : odd > even ? 'Odd is greater than Even' : 'Even and Odd are the same';
+}
+//console.log(evenOrOdd('123'));
+
+function nthChar(words){
+  
+  let word = "";
+    for(let i=0; i<words.length; i++){
+      word+=words[i].charAt(i);
+    }
+    return word;
+ }
+ //console.log(nthChar(['yoda','best','has']));
+
+ function sabb(s, val, happiness){
+
+  let count = 0;
+  let word = 'sabbatical';
+
+  s.split('').forEach(c => {
+    if(word.includes(c)){
+      count+=1;
+    }
+  })
+  return count+val+happiness > 22 ? 'Sabbatical! Boom!' : 'Back to your desk, boy.';
+}
+//console.log(sabb('Please calm down', 9, 1));
 
