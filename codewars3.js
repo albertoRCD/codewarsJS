@@ -871,35 +871,36 @@ function nicknameGenerator(name) {
 //console.log(nicknameGenerator('Robert'));
 
 function twoArePositive(a, b, c) {
-  return [a,b,c].filter(x => x > 0).length == 2;
+  return [a, b, c].filter(x => x > 0).length == 2;
 }
 //console.log(twoArePositive(4, 6, 0));
 
-Object.defineProperty(Array.prototype, 'numberOfOccurrences',{ 
-  value : function numberOfOccurrences(element) {
+Object.defineProperty(Array.prototype, 'numberOfOccurrences', {
+  value: function numberOfOccurrences(element) {
     return this.filter(x => x === element).length;
   }
 });
 //console.log(numberOfOccurrences([1,2,3,4,5], 3));
 
-var AmIAfraid = function(day, num){
-    switch(day){
-      case 'Monday':
-        return num == 12 && true;
-      case 'Tuesday':
-        return num > 96 && true;
-      case 'Wednesday':
-        return num == 34 && true;
-      case 'Thursday':
-        return num == 0 && true;
-      case 'Friday':
-        return num % 2 == 0 && true;
-      case 'Saturday':
-        return num == 56 && true;
-      case 'Sunday':
-        return num == 666 || num == -666 && true;
-      default: return false; 
-    }
+var AmIAfraid = function (day, num) {
+  switch (day) {
+    case 'Monday':
+      return num == 12 && true;
+    case 'Tuesday':
+      return num > 96 && true;
+    case 'Wednesday':
+      return num == 34 && true;
+    case 'Thursday':
+      return num == 0 && true;
+    case 'Friday':
+      return num % 2 == 0 && true;
+    case 'Saturday':
+      return num == 56 && true;
+    case 'Sunday':
+      return num == 666 || num == -666 && true;
+    default:
+      return false;
+  }
 }
 //console.log(AmIAfraid('Monday', 12));
 
@@ -936,59 +937,58 @@ function variance(town, strng) {
 }
 
 
-const data = 
-     "Rome:Jan 81.2,Feb 63.2,Mar 70.3,Apr 55.7,May 53.0,Jun 36.4,Jul 17.5,Aug 27.5,Sep 60.9,Oct 117.7,Nov 111.0,Dec 97.9" + "\n" +
-     "London:Jan 48.0,Feb 38.9,Mar 39.9,Apr 42.2,May 47.3,Jun 52.1,Jul 59.5,Aug 57.2,Sep 55.4,Oct 62.0,Nov 59.0,Dec 52.9" + "\n" +
-     "Paris:Jan 182.3,Feb 120.6,Mar 158.1,Apr 204.9,May 323.1,Jun 300.5,Jul 236.8,Aug 192.9,Sep 66.3,Oct 63.3,Nov 83.2,Dec 154.7" + "\n" +
-     "NY:Jan 108.7,Feb 101.8,Mar 131.9,Apr 93.5,May 98.8,Jun 93.6,Jul 102.2,Aug 131.8,Sep 92.0,Oct 82.3,Nov 107.8,Dec 94.2" + "\n" +
-     "Vancouver:Jan 145.7,Feb 121.4,Mar 102.3,Apr 69.2,May 55.8,Jun 47.1,Jul 31.3,Aug 37.0,Sep 59.6,Oct 116.3,Nov 154.6,Dec 171.5" + "\n" +
-     "Sydney:Jan 103.4,Feb 111.0,Mar 131.3,Apr 129.7,May 123.0,Jun 129.2,Jul 102.8,Aug 80.3,Sep 69.3,Oct 82.6,Nov 81.4,Dec 78.2" + "\n" +
-     "Bangkok:Jan 10.6,Feb 28.2,Mar 30.7,Apr 71.8,May 189.4,Jun 151.7,Jul 158.2,Aug 187.0,Sep 319.9,Oct 230.8,Nov 57.3,Dec 9.4" + "\n" +
-     "Tokyo:Jan 49.9,Feb 71.5,Mar 106.4,Apr 129.2,May 144.0,Jun 176.0,Jul 135.6,Aug 148.5,Sep 216.4,Oct 194.1,Nov 95.6,Dec 54.4" + "\n" +
-     "Beijing:Jan 3.9,Feb 4.7,Mar 8.2,Apr 18.4,May 33.0,Jun 78.1,Jul 224.3,Aug 170.0,Sep 58.4,Oct 18.0,Nov 9.3,Dec 2.7" + "\n" +
-     "Lima:Jan 1.2,Feb 0.9,Mar 0.7,Apr 0.4,May 0.6,Jun 1.8,Jul 4.4,Aug 3.1,Sep 3.3,Oct 1.7,Nov 0.5,Dec 0.7";
+const data =
+  "Rome:Jan 81.2,Feb 63.2,Mar 70.3,Apr 55.7,May 53.0,Jun 36.4,Jul 17.5,Aug 27.5,Sep 60.9,Oct 117.7,Nov 111.0,Dec 97.9" + "\n" +
+  "London:Jan 48.0,Feb 38.9,Mar 39.9,Apr 42.2,May 47.3,Jun 52.1,Jul 59.5,Aug 57.2,Sep 55.4,Oct 62.0,Nov 59.0,Dec 52.9" + "\n" +
+  "Paris:Jan 182.3,Feb 120.6,Mar 158.1,Apr 204.9,May 323.1,Jun 300.5,Jul 236.8,Aug 192.9,Sep 66.3,Oct 63.3,Nov 83.2,Dec 154.7" + "\n" +
+  "NY:Jan 108.7,Feb 101.8,Mar 131.9,Apr 93.5,May 98.8,Jun 93.6,Jul 102.2,Aug 131.8,Sep 92.0,Oct 82.3,Nov 107.8,Dec 94.2" + "\n" +
+  "Vancouver:Jan 145.7,Feb 121.4,Mar 102.3,Apr 69.2,May 55.8,Jun 47.1,Jul 31.3,Aug 37.0,Sep 59.6,Oct 116.3,Nov 154.6,Dec 171.5" + "\n" +
+  "Sydney:Jan 103.4,Feb 111.0,Mar 131.3,Apr 129.7,May 123.0,Jun 129.2,Jul 102.8,Aug 80.3,Sep 69.3,Oct 82.6,Nov 81.4,Dec 78.2" + "\n" +
+  "Bangkok:Jan 10.6,Feb 28.2,Mar 30.7,Apr 71.8,May 189.4,Jun 151.7,Jul 158.2,Aug 187.0,Sep 319.9,Oct 230.8,Nov 57.3,Dec 9.4" + "\n" +
+  "Tokyo:Jan 49.9,Feb 71.5,Mar 106.4,Apr 129.2,May 144.0,Jun 176.0,Jul 135.6,Aug 148.5,Sep 216.4,Oct 194.1,Nov 95.6,Dec 54.4" + "\n" +
+  "Beijing:Jan 3.9,Feb 4.7,Mar 8.2,Apr 18.4,May 33.0,Jun 78.1,Jul 224.3,Aug 170.0,Sep 58.4,Oct 18.0,Nov 9.3,Dec 2.7" + "\n" +
+  "Lima:Jan 1.2,Feb 0.9,Mar 0.7,Apr 0.4,May 0.6,Jun 1.8,Jul 4.4,Aug 3.1,Sep 3.3,Oct 1.7,Nov 0.5,Dec 0.7";
 
 //console.log(mean("Tokyo", data));
 
 function rakeGarden(garden) {
   let r = [];
   let g = garden.split(" ");
-    for(let i=0; i<g.length; i++){
-      if(g[i] == 'gravel'){
-        r.push('gravel');
-      } else if(g[i] == 'rock'){
-        r.push('rock');
-      }
-      else {
-        r.push('gravel');
-      }
+  for (let i = 0; i < g.length; i++) {
+    if (g[i] == 'gravel') {
+      r.push('gravel');
+    } else if (g[i] == 'rock') {
+      r.push('rock');
+    } else {
+      r.push('gravel');
     }
-    return r.join(" ");
+  }
+  return r.join(" ");
 
 }
 //console.log(rakeGarden('slug spider rock gravel gravel gravel gravel gravel gravel gravel ant snail'));
 
 function countWords(str) {
-  
-  if(str == "") return 0;
+
+  if (str == "") return 0;
   return str.trim().split(/\s+/).length;
 }
 //console.log(countWords(""));
 
 function unusedDigits(...k) {
-  let nums = ['0','1','2','3','4','5','6','7','8','9'];
+  let nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
   let nums2 = k.join("").split("");
   let r = "";
-  for(let i=0; i<nums.length; i++){
-    if(!nums2.includes(nums[i])){
-      r+= nums[i];
+  for (let i = 0; i < nums.length; i++) {
+    if (!nums2.includes(nums[i])) {
+      r += nums[i];
     }
   }
   return r;
 }
 //console.log(unusedDigits(12, 34, 56, 78));
 
-function solveNums(arr){
+function solveNums(arr) {
 
   arr.sort((a, b) => a - b);
 
@@ -1003,16 +1003,16 @@ function solveNums(arr){
 
 function killer(suspectInfo, dead) {
   let r = {};
-  for(let k in suspectInfo){
-    for(let i=0; i<dead.length; i++){
-      if(suspectInfo[k].includes(dead[i])){
-        if(r[k]) r[k]++;
+  for (let k in suspectInfo) {
+    for (let i = 0; i < dead.length; i++) {
+      if (suspectInfo[k].includes(dead[i])) {
+        if (r[k]) r[k]++;
         else r[k] = 1;
       }
     }
   }
-  for(let s in r){
-    if(r[s] == dead.length){
+  for (let s in r) {
+    if (r[s] == dead.length) {
       return s;
     }
   }
@@ -1021,56 +1021,56 @@ function killer(suspectInfo, dead) {
   'Johnny': ['David', 'Kyle', 'Lucas'],
   'Peter': ['Lucy', 'Kyle']},['Lucas', 'Bill']));*/
 
-  function mergeArrays(a, b) {
+function mergeArrays(a, b) {
 
-    let r = [];
-      for(let i=0; i<a.length; i++){
-          if(a[i] != undefined)
-            r.push(a[i]);  
-        for(let j=i; j<b.length; j++){
-          r.push(b[j]);
-          break;
-        }
-      }
-      if(b.length > a.length){
-        r.push(...b.slice(a.length));
-      }
-      return r;
-  }
-  //console.log(mergeArrays(['b', 'r', 'a', 'u', 'r', 's', 'e', 'q', 'z'], [2, 5, 8, 23, 67, 6,2, 5, 8, 23, 67, 6,2, 5, 8, 23, 67, 6]));
-
-  function HQ9(code) {
-    let phrase = "99 bottles of beer on the wall, 99 bottles of beer. \n";
- 
-   for(let i=98; i>1; i--){
-     phrase += "Take one down and pass it around, "+ i + " bottles of beer on the wall. \n" + i + " bottles of beer on the wall, " + i + " bottles of beer. \n";  
-   }
-  
-   phrase += "Take one down and pass it around, 1 bottle of beer on the wall.\n1 bottle of beer on the wall, 1 bottle of beer.\nTake one down and pass it around, no more bottles of beer on the wall.\nNo more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.";
- 
-   return code == 'H' ? 'Hello World!' : code == 'Q' ? 'Q' : code == '9' ? phrase : undefined;
- }
- //console.log(HQ9('9'));
-
- function modifyMultiply (str,loc,num) {
-
-    let array = str.split(" ");
-    let word = array[loc]+"-";
-    return word.repeat(num).slice(0, -1);
-  } 
-  //console.log(modifyMultiply('hola que tal', 2, 5));
-
-  function pendulum(values) { 
-    let ordenados = values.sort((a,b) => a-b);
-    let r = [];
-    for(let i=0; i<ordenados.length; i++){
-      if(i % 2 != 0){
-        r.push(ordenados[i]);
-      } else {
-        r.unshift(ordenados[i])
-      }
+  let r = [];
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] != undefined)
+      r.push(a[i]);
+    for (let j = i; j < b.length; j++) {
+      r.push(b[j]);
+      break;
     }
-    return r;
+  }
+  if (b.length > a.length) {
+    r.push(...b.slice(a.length));
+  }
+  return r;
+}
+//console.log(mergeArrays(['b', 'r', 'a', 'u', 'r', 's', 'e', 'q', 'z'], [2, 5, 8, 23, 67, 6,2, 5, 8, 23, 67, 6,2, 5, 8, 23, 67, 6]));
+
+function HQ9(code) {
+  let phrase = "99 bottles of beer on the wall, 99 bottles of beer. \n";
+
+  for (let i = 98; i > 1; i--) {
+    phrase += "Take one down and pass it around, " + i + " bottles of beer on the wall. \n" + i + " bottles of beer on the wall, " + i + " bottles of beer. \n";
+  }
+
+  phrase += "Take one down and pass it around, 1 bottle of beer on the wall.\n1 bottle of beer on the wall, 1 bottle of beer.\nTake one down and pass it around, no more bottles of beer on the wall.\nNo more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.";
+
+  return code == 'H' ? 'Hello World!' : code == 'Q' ? 'Q' : code == '9' ? phrase : undefined;
+}
+//console.log(HQ9('9'));
+
+function modifyMultiply(str, loc, num) {
+
+  let array = str.split(" ");
+  let word = array[loc] + "-";
+  return word.repeat(num).slice(0, -1);
+}
+//console.log(modifyMultiply('hola que tal', 2, 5));
+
+function pendulum(values) {
+  let ordenados = values.sort((a, b) => a - b);
+  let r = [];
+  for (let i = 0; i < ordenados.length; i++) {
+    if (i % 2 != 0) {
+      r.push(ordenados[i]);
+    } else {
+      r.unshift(ordenados[i])
+    }
+  }
+  return r;
 }
 //console.log(pendulum([6, 6, 8 ,5 ,10])); //==> [10, 6, 5, 6, 8]]))
 
@@ -1080,38 +1080,38 @@ function longestPalindrome(s) {
     // Check if a given string is a palindrome by comparing with its reverse
     return str === str.split('').reverse().join('');
   }
-    let maxLength = 0;
-    
-    // If the string is empty, return 0
-    if (s.length === 0) return 0;
-    
-    // Loop over all possible substrings
-    for (let i = 0; i < s.length; i++) {
-        for (let j = i + 1; j <= s.length; j++) {
-            const substring = s.slice(i, j);
-            
-            // Check if it's a palindrome and update the maxLength if it's longer
-            if (isPalindrome(substring) && substring.length > maxLength) {
-                maxLength = substring.length;
-            }
-        }
-    }   
-    return maxLength;
+  let maxLength = 0;
+
+  // If the string is empty, return 0
+  if (s.length === 0) return 0;
+
+  // Loop over all possible substrings
+  for (let i = 0; i < s.length; i++) {
+    for (let j = i + 1; j <= s.length; j++) {
+      const substring = s.slice(i, j);
+
+      // Check if it's a palindrome and update the maxLength if it's longer
+      if (isPalindrome(substring) && substring.length > maxLength) {
+        maxLength = substring.length;
+      }
+    }
+  }
+  return maxLength;
 }
 //console.log(longestPalindrome("zzbaabcd"));
 
 class Dictionary {
   d = {};
   constructor() {
-    
+
   }
-  
+
   newEntry(key, value) {
     this.d[key] = value;
   }
-  
+
   look(key) {
-    if(!this.d[key])  return "Can't find entry for " + key;
+    if (!this.d[key]) return "Can't find entry for " + key;
     return this.d[key];
   }
 }
@@ -1124,8 +1124,8 @@ function evenOrOdd(str) {
   let even = 0;
   let odd = 0;
 
-  for(let i=0; i<str.length; i++){
-    if(parseInt(str[i]) % 2 == 0){
+  for (let i = 0; i < str.length; i++) {
+    if (parseInt(str[i]) % 2 == 0) {
       even += parseInt(str[i]);
     } else {
       odd += parseInt(str[i]);
@@ -1135,27 +1135,122 @@ function evenOrOdd(str) {
 }
 //console.log(evenOrOdd('123'));
 
-function nthChar(words){
-  
-  let word = "";
-    for(let i=0; i<words.length; i++){
-      word+=words[i].charAt(i);
-    }
-    return word;
- }
- //console.log(nthChar(['yoda','best','has']));
+function nthChar(words) {
 
- function sabb(s, val, happiness){
+  let word = "";
+  for (let i = 0; i < words.length; i++) {
+    word += words[i].charAt(i);
+  }
+  return word;
+}
+//console.log(nthChar(['yoda','best','has']));
+
+function sabb(s, val, happiness) {
 
   let count = 0;
   let word = 'sabbatical';
 
   s.split('').forEach(c => {
-    if(word.includes(c)){
-      count+=1;
+    if (word.includes(c)) {
+      count += 1;
     }
   })
-  return count+val+happiness > 22 ? 'Sabbatical! Boom!' : 'Back to your desk, boy.';
+  return count + val + happiness > 22 ? 'Sabbatical! Boom!' : 'Back to your desk, boy.';
 }
 //console.log(sabb('Please calm down', 9, 1));
 
+function timeCorrect(timestring) {
+
+  if (timestring == '') return '';
+  else if (!/^\d{2}:\d{2}:\d{2}$/.test(timestring)) return null;
+
+
+  else {
+    let hours = parseInt(timestring.slice(0, 2));
+    let minutes = parseInt(timestring.slice(3, 5));
+    let seconds = parseInt(timestring.slice(6, 8));
+
+    if (seconds >= 60) {
+      seconds = seconds - 60;
+      minutes++;
+    }
+
+    if (minutes >= 60) {
+      minutes = minutes - 60;
+      hours++;
+    }
+
+    if (hours >= 24) {
+      do {
+        hours = hours - 24;
+      } while (hours >= 24)
+    }
+
+    let result = "";
+
+    if (hours < 10) {
+      result += "0" + hours + ":"
+    } else {
+      result += hours.toString() + ":";
+    }
+
+    if (minutes < 10) {
+      result += "0" + minutes + ":";
+    } else {
+      result += minutes.toString() + ":";
+    }
+
+    if (seconds < 10) {
+      result += "0" + seconds;
+    } else {
+      result += seconds.toString();
+    }
+    return result;
+  }
+}
+//console.log(timeCorrect("19:99:09"));
+
+function sumTheTreeValues(tree){
+  
+  function getValues(node) {
+    // Si el nodo es null, regresamos un array vacío.
+    if (!node) return [];
+  
+    // Si el nodo tiene un valor, lo agregamos al array.
+    let values = [node.value];
+  
+    // Recorremos recursivamente los subárboles izquierdo y derecho.
+    if (node.left) {
+      values = values.concat(getValues(node.left));
+    }
+  
+    if (node.right) {
+      values = values.concat(getValues(node.right));
+    }
+  
+    return values;
+  }
+  
+  const values = getValues(tree);
+  return values.reduce((a,b) => a+b);
+ 
+  //resumen ->  return !root ? 0 : root.value + sumTheTreeValues(root.left) + sumTheTreeValues(root.right); 
+}
+//console.log(sumTheTreeValues({value: 11, left: {value: 0, left: null, right: null}, right: {value: 0, left: null, right: {value: 1, left: null, right: null}}}));
+
+function convertHashToArray(hash){
+    //resumen -> return Object.entries(hash).sort();
+  let result = [];
+
+  let l = Object.keys(hash).length;
+
+  for(let i=0; i<l; i++){
+    result.push([Object.keys(hash)[i], Object.values(hash)[i]]);
+  }
+  return result.sort((a, b) => {
+    if (a[0] < b[0]) return -1;
+    if (a[0] > b[0]) return 1;
+    return 0; // Si son iguales, no cambiar el orden
+  });
+}
+//console.log(convertHashToArray({name: "Jeremy", age: 24, role: "Software Engineer"}));
